@@ -1,7 +1,7 @@
 import 'package:caderninho/domain/catalog/product.dart';
-import 'package:caderninho/presentation/catalog/states.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+
+import 'states.dart';
 
 StreamBuilder buildCatalog(Stream<CatalogState> catalogStream) {
   return StreamBuilder(

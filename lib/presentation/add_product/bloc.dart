@@ -2,7 +2,8 @@ import 'dart:async';
 
 import 'package:caderninho/application/add_product_to_catalog.dart';
 import 'package:caderninho/domain/catalog/product.dart';
-import 'package:caderninho/presentation/add_product/states.dart';
+
+import 'states.dart';
 
 class AddProductBloc {
   final AddProductToCatalog _addProductToCatalog;

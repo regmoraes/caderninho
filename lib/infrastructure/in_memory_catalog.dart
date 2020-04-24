@@ -1,25 +1,22 @@
 import 'dart:collection';
 
+import 'package:caderninho/application/add_product_to_catalog.dart';
+import 'package:caderninho/application/fetch_catalog.dart';
 import 'package:caderninho/domain/catalog/catalog.dart';
-import 'package:caderninho/domain/catalog/catalog_repository.dart';
 import 'package:caderninho/domain/catalog/product.dart';
 import 'package:caderninho/domain/catalog/search.dart';
 
-class InMemoryCatalog implements CatalogRepository {
-  final HashMap<int, Product> products = HashMap();
+class InMemoryCatalog {
+  static final HashMap<int, Product> _products = HashMap();
 
-  @override
-  Future<bool> add(Product product) {
-    products[product.id] = product;
-
+  static final AddProductToCatalog addToInMemoryCatalog = (product) {
+    _products[product.id] = product;
     return Future.value(true);
-  }
+  };
 
-  @override
-  Future<Catalog> fetch(CatalogSearch searchTerm) {
+  static final FetchCatalog fetchInMemoryCatalog = (CatalogSearch searchTerm) {
     final catalog =
-        Catalog(products.entries.map((entry) => entry.value).toList());
-
+    Catalog(_products.entries.map((entry) => entry.value).toList());
     return Future.value(catalog);
-  }
+  };
 }

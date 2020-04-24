@@ -2,7 +2,8 @@ import 'dart:async';
 
 import 'package:caderninho/application/fetch_catalog.dart';
 import 'package:caderninho/domain/catalog/search.dart';
-import 'package:caderninho/presentation/catalog/states.dart';
+
+import 'states.dart';
 
 class CatalogBloc {
   final FetchCatalog _fetchCatalog;

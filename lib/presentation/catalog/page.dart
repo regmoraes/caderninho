@@ -1,8 +1,9 @@
 import 'package:caderninho/domain/catalog/search.dart';
-import 'package:caderninho/infrastructure/dependency_injection.dart';
-import 'package:caderninho/presentation/catalog/bloc.dart';
-import 'package:caderninho/presentation/catalog/widgets.dart';
+import 'package:caderninho/infrastructure/di/presentation_provider.dart';
 import 'package:flutter/material.dart';
+
+import 'bloc.dart';
+import 'widgets.dart';
 
 class CatalogPage extends StatefulWidget {
   const CatalogPage({Key key, this.title}) : super(key: key);
