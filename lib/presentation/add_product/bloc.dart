@@ -1,23 +1,23 @@
 import 'dart:async';
 
-import 'package:caderninho/application/add_product_to_catalog.dart';
+import 'package:caderninho/application/add_product.dart';
 import 'package:caderninho/domain/catalog/product.dart';
 
 import 'states.dart';
 
 class AddProductBloc {
-  final AddProductToCatalog _addProductToCatalog;
+  final AddProduct _addProduct;
   final _addProductStreamController = StreamController<AddProductState>();
 
   Stream<AddProductState> get addProductState =>
       _addProductStreamController.stream;
 
-  AddProductBloc(this._addProductToCatalog);
+  AddProductBloc(this._addProduct);
 
   void addProductToCatalog(Product product) async {
     _addProductStreamController.add(AddingProduct());
 
-    final addSuccessful = await _addProductToCatalog(product);
+    final addSuccessful = await _addProduct(product);
 
     if (addSuccessful)
       _addProductStreamController.add(ProductAdded());

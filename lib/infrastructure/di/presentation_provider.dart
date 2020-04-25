@@ -5,9 +5,9 @@ import 'application_provider.dart';
 
 AddProductBloc _addProductToCatalogBloc;
 
-AddProductBloc get addProductToCatalogBloc {
+AddProductBloc get addProductBloc {
   if (_addProductToCatalogBloc == null)
-    _addProductToCatalogBloc = AddProductBloc(addProductToCatalog);
+    _addProductToCatalogBloc = AddProductBloc(addProduct);
   return _addProductToCatalogBloc;
 }
 

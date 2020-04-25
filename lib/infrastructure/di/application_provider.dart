@@ -1,20 +1,20 @@
-import 'package:caderninho/application/add_product_to_catalog.dart';
+import 'package:caderninho/application/add_product.dart';
 import 'package:caderninho/application/fetch_catalog.dart';
 
 import '../in_memory_catalog.dart';
 
-AddProductToCatalog _addProductToCatalog;
+AddProduct _addProduct;
 
-AddProductToCatalog get addProductToCatalog {
-  if (_addProductToCatalog == null)
-    _addProductToCatalog = InMemoryCatalog.addToInMemoryCatalog;
-  return _addProductToCatalog;
+AddProduct get addProduct {
+  if (_addProduct == null)
+    _addProduct = InMemoryCatalog.addProduct;
+  return _addProduct;
 }
 
 FetchCatalog _fetchCatalog;
 
 FetchCatalog get fetchCatalog {
   if (_fetchCatalog == null)
-    _fetchCatalog = InMemoryCatalog.fetchInMemoryCatalog;
+    _fetchCatalog = InMemoryCatalog.fetch;
   return _fetchCatalog;
 }
