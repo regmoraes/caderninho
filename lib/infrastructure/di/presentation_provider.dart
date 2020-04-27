@@ -1,19 +1,11 @@
-import 'package:caderninho/presentation/add_product/bloc.dart';
-import 'package:caderninho/presentation/catalog/bloc.dart';
+import 'package:caderninho/presentation/bloc/catalog_bloc.dart';
 
 import 'application_provider.dart';
-
-AddProductBloc _addProductToCatalogBloc;
-
-AddProductBloc get addProductBloc {
-  if (_addProductToCatalogBloc == null)
-    _addProductToCatalogBloc = AddProductBloc(addProduct);
-  return _addProductToCatalogBloc;
-}
 
 CatalogBloc _catalogBloc;
 
 CatalogBloc get catalogBloc {
-  if (_catalogBloc == null) _catalogBloc = CatalogBloc(fetchCatalog);
+  if (_catalogBloc == null)
+    _catalogBloc = CatalogBloc(fetchCatalog, addProduct);
   return _catalogBloc;
 }

@@ -6,8 +6,8 @@ void main() {
   ShoppingCart shoppingCart;
 
   final ball = Product(id: 1, name: "Ball", description: "A ball", price: 100);
-  final bat =
-      Product(id: 2, name: "Bat", description: "A baseball bat", price: 500);
+  final bat = Product(
+      id: 2, name: "Bat", description: "A baseball bat", price: 500);
 
   group('Given an empty Shopping Cart', () {
     setUp(() {

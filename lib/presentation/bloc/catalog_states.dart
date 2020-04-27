@@ -3,10 +3,10 @@ import 'package:equatable/equatable.dart';
 
 abstract class CatalogState extends Equatable {}
 
-class CatalogFetched extends CatalogState {
+class Fetched extends CatalogState {
   final Catalog catalog;
 
-  CatalogFetched(this.catalog);
+  Fetched(this.catalog);
 
   @override
   List<Object> get props => [catalog];
@@ -18,6 +18,21 @@ class Fetching extends CatalogState {
 }
 
 class Error extends CatalogState {
+  @override
+  List<Object> get props => [];
+}
+
+class AddingProduct extends CatalogState {
+  @override
+  List<Object> get props => [];
+}
+
+class ProductAdded extends CatalogState {
+  @override
+  List<Object> get props => [];
+}
+
+class ErrorWhileAdding extends CatalogState {
   @override
   List<Object> get props => [];
 }
