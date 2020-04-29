@@ -19,7 +19,7 @@ class CatalogBloc {
 
   void fetchCatalog(CatalogSearch search) async {
     _catalogStreamController.add(Fetching());
-    final fetchResult = await _fetchCatalog(null);
+    final fetchResult = await _fetchCatalog(search);
     _catalogStreamController.add(Fetched(fetchResult));
   }
 
