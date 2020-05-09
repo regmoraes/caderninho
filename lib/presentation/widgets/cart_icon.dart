@@ -2,10 +2,10 @@ import 'package:caderninho/presentation/bloc/cart_bloc.dart';
 import 'package:caderninho/presentation/bloc/cart_state.dart';
 import 'package:flutter/material.dart';
 
-class CartWidget extends StatelessWidget {
+class CartIcon extends StatelessWidget {
   final CartBloc _cartBloc;
 
-  CartWidget(this._cartBloc);
+  CartIcon(this._cartBloc);
 
   @override
   Widget build(BuildContext context) {

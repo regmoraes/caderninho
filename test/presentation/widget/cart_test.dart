@@ -1,6 +1,6 @@
 import 'package:caderninho/domain/catalog/product.dart';
 import 'package:caderninho/presentation/bloc/cart_bloc.dart';
-import 'package:caderninho/presentation/widgets/cart.dart';
+import 'package:caderninho/presentation/widgets/cart_icon.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
@@ -18,7 +18,7 @@ void main() {
     });
 
     testWidgets("It shouldn't show any badges on icon", (tester) async {
-      final cartWidget = CartWidget(_cartBloc);
+      final cartWidget = CartIcon(_cartBloc);
 
       await tester.pumpWidget(MaterialApp(home: cartWidget));
 
@@ -28,7 +28,7 @@ void main() {
 
     testWidgets("When product to cart it should show item count",
         (tester) async {
-      final cartWidget = CartWidget(_cartBloc);
+          final cartWidget = CartIcon(_cartBloc);
 
       await tester.pumpWidget(MaterialApp(home: cartWidget));
 

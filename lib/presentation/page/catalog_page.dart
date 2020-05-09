@@ -2,7 +2,7 @@ import 'package:caderninho/domain/catalog/search.dart';
 import 'package:caderninho/presentation/bloc/cart_bloc.dart';
 import 'package:caderninho/presentation/navigator.dart';
 import 'package:caderninho/presentation/page/new_product_page.dart';
-import 'package:caderninho/presentation/widgets/cart.dart';
+import 'package:caderninho/presentation/widgets/cart_icon.dart';
 import 'package:caderninho/presentation/widgets/catalog.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -34,7 +34,7 @@ class _CatalogPageState extends State<CatalogPage> {
     return Scaffold(
       appBar: AppBar(
         title: Text(title),
-        actions: <Widget>[CartWidget(cartBloc)],
+        actions: <Widget>[CartIcon(cartBloc)],
       ),
       body: CatalogWidget(catalogBloc),
       floatingActionButton: FloatingActionButton(
