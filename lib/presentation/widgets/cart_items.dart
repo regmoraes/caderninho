@@ -1,20 +1,16 @@
-import 'package:caderninho/domain/catalog/product.dart';
+import 'package:caderninho/domain/cart/cart_item.dart';
 import 'package:caderninho/presentation/bloc/cart_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 class CartItemsWidget extends StatelessWidget {
-  final CartBloc _cartBloc;
-
-  CartItemsWidget(this._cartBloc);
-
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
     final double itemHeight = (size.height - 200) / 2;
     final double itemWidth = size.width / 2;
 
-    return Consumer(
+    return Consumer<CartBloc>(
       builder: (context, cartBloc, child) {
         return GridView.builder(
           gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
@@ -23,13 +19,13 @@ class CartItemsWidget extends StatelessWidget {
           ),
           itemCount: cartBloc.cartItems.length,
           itemBuilder: (context, index) =>
-              _cartItem(context, cartBloc.cartItems[index].product),
+              _cartItem(context, cartBloc.cartItems[index]),
         );
       },
     );
   }
 
-  Widget _cartItem(BuildContext context, Product product) {
+  Widget _cartItem(BuildContext context, CartItem cartItem) {
     return GestureDetector(
       child: Card(
         clipBehavior: null,
@@ -41,21 +37,28 @@ class CartItemsWidget extends StatelessWidget {
           children: <Widget>[
             Container(
                 child: Text(
-              "${product.name}",
+              "${cartItem.product.name}",
               textAlign: TextAlign.center,
             )),
             Container(
                 child: Text(
-              "\$ ${product.price}",
+              "\$ ${cartItem.product.price}",
               textAlign: TextAlign.center,
             )),
+            Container(
+                child: Text(
+              "Quantity: ${cartItem.quantity}",
+              textAlign: TextAlign.center,
+            )),
+            Consumer<CartBloc>(
+              builder: (context, cartBloc, _) => RaisedButton(
+                child: Text("Remover"),
+                onPressed: () => cartBloc.remove(cartItem.product.id),
+              ),
+            ),
           ],
         ),
       ),
     );
-  }
-
-  Widget _emptyCartText() {
-    return Center(child: Text("Your cart is empty"));
   }
 }

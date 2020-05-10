@@ -9,10 +9,9 @@ class CartBloc with ChangeNotifier {
 
   List<CartItem> get cartItems => _cartItemsMap.values.toList();
 
-  int get totalPrice =>
-      cartItems
+  int get totalPrice => cartItems
       .map((item) => item.product.price * item.quantity)
-      .reduce((total, cartItemPrice) => total + cartItemPrice);
+      .fold(0, (total, cartItemPrice) => total + cartItemPrice);
 
   int get itemsCount =>
       cartItems

@@ -1,7 +1,9 @@
 import 'package:caderninho/domain/catalog/product.dart';
+import 'package:caderninho/presentation/bloc/cart_bloc.dart';
 import 'package:caderninho/presentation/bloc/catalog_bloc.dart';
 import 'package:caderninho/presentation/bloc/catalog_states.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class CatalogWidget extends StatelessWidget {
   final CatalogBloc _catalogBloc;
@@ -55,6 +57,12 @@ class CatalogWidget extends StatelessWidget {
               "\$ ${product.price}",
               textAlign: TextAlign.center,
             )),
+            Consumer<CartBloc>(
+              builder: (context, cartBloc, _) => RaisedButton(
+                child: Text("Add to Cart"),
+                onPressed: () => cartBloc.add(product),
+              ),
+            ),
           ],
         ),
       ),
