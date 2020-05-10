@@ -13,7 +13,8 @@ void main() {
     final bat = Product(id: 2, name: "Bat", description: "Bat", price: 500);
     final catalog = Catalog([ball, bat]);
 
-    test("When fetchCatalog it should emit correct stream of states", () async {
+    test(
+        "When fetching catalog it should emit correct stream of states", () async {
       final fetchCatalog = (catalogSearch) => Future.value(catalog);
       final addProduct = (product) => Future.value(true);
       final catalogBloc = CatalogBloc(fetchCatalog, addProduct);

@@ -1,23 +1,25 @@
-import 'dart:async';
 import 'dart:collection';
 
 import 'package:caderninho/domain/catalog/product.dart';
 import 'package:caderninho/domain/shopping_cart/cart_item.dart';
-import 'package:caderninho/presentation/bloc/cart_state.dart';
+import 'package:flutter/material.dart';
 
-class CartBloc {
-  final _streamController = StreamController<CartState>.broadcast();
+class CartBloc with ChangeNotifier {
   final _cartItemsMap = HashMap<int, CartItem>();
 
-  get state => _streamController.stream;
+  List<CartItem> get cartItems => _cartItemsMap.values.toList();
 
-  get _totalPrice => _cartItemsMap.values
+  int get totalPrice =>
+      cartItems
       .map((item) => item.product.price * item.quantity)
       .reduce((total, cartItemPrice) => total + cartItemPrice);
 
-  get _itemsCount => _cartItemsMap.values
+  int get itemsCount =>
+      cartItems
       .map((cartItem) => cartItem.quantity)
-      .reduce((total, quantity) => total + quantity);
+          .fold(0, (total, quantity) => total + quantity);
+
+  bool get isEmpty => itemsCount == 0;
 
   void add(Product product) {
     CartItem cartItem = _cartItemsMap[product.id];
@@ -27,13 +29,7 @@ class CartBloc {
     else
       _cartItemsMap[product.id] = CartItem(product);
 
-    _streamController.add(
-      ItemAdded(
-        cartItems: _cartItemsMap.values.toList(),
-        itemsCount: _itemsCount,
-        totalPrice: _totalPrice,
-      ),
-    );
+    notifyListeners();
   }
 
   void remove(int productId) {
@@ -45,22 +41,12 @@ class CartBloc {
       else
         _cartItemsMap.remove(productId);
 
-      _streamController.add(
-        ItemRemoved(
-          cartItems: _cartItemsMap.values.toList(),
-          itemsCount: _itemsCount,
-          totalPrice: _totalPrice,
-        ),
-      );
+      notifyListeners();
     }
   }
 
   void clear() {
     _cartItemsMap.clear();
-    _streamController.add(Empty());
-  }
-
-  void close() {
-    _streamController.close();
+    notifyListeners();
   }
 }

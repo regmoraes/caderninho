@@ -3,34 +3,41 @@ import 'package:caderninho/presentation/bloc/cart_bloc.dart';
 import 'package:caderninho/presentation/widgets/cart_icon.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:provider/provider.dart';
 
 void main() {
   CartBloc _cartBloc;
   final ball = Product(id: 1, name: "Ball", description: "A ball", price: 10);
 
+  setUp(() {
+    _cartBloc = CartBloc();
+  });
+
   group("Given an empty Cart", () {
-    setUp(() {
-      _cartBloc = CartBloc();
-    });
-
-    tearDown(() {
-      _cartBloc.close();
-    });
-
     testWidgets("It shouldn't show any badges on icon", (tester) async {
-      final cartWidget = CartIcon(_cartBloc);
+      final cartIcon = CartIcon();
 
-      await tester.pumpWidget(MaterialApp(home: cartWidget));
+      await tester.pumpWidget(
+        ChangeNotifierProvider(
+            create: (_) => _cartBloc,
+            child: MaterialApp(home: Scaffold(body: cartIcon))),
+      );
 
-      expect(find.byWidget(cartWidget), findsOneWidget);
+      expect(find.byWidget(cartIcon), findsOneWidget);
       expect(find.byType(Text), findsNothing);
     });
+  });
 
-    testWidgets("When product to cart it should show item count",
+  group("Given a non empty Cart", () {
+    testWidgets("When cart is not empty it should show item count",
         (tester) async {
-          final cartWidget = CartIcon(_cartBloc);
+          final cartIcon = CartIcon();
 
-      await tester.pumpWidget(MaterialApp(home: cartWidget));
+          await tester.pumpWidget(
+            ChangeNotifierProvider.value(
+                value: _cartBloc,
+                child: MaterialApp(home: Scaffold(body: cartIcon))),
+          );
 
       _cartBloc.add(ball);
       _cartBloc.add(ball);
@@ -38,7 +45,7 @@ void main() {
       await tester.idle();
       await tester.pump(Duration.zero);
 
-      expect(find.byWidget(cartWidget), findsOneWidget);
+          expect(find.byWidget(cartIcon), findsOneWidget);
       expect(find.text("2"), findsOneWidget);
     });
   });

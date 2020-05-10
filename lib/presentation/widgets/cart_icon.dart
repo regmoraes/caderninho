@@ -1,51 +1,49 @@
 import 'package:caderninho/presentation/bloc/cart_bloc.dart';
-import 'package:caderninho/presentation/bloc/cart_state.dart';
+import 'package:caderninho/presentation/navigator.dart';
+import 'package:caderninho/presentation/page/cart_page.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class CartIcon extends StatelessWidget {
-  final CartBloc _cartBloc;
-
-  CartIcon(this._cartBloc);
-
   @override
   Widget build(BuildContext context) {
-    return StreamBuilder(
-      stream: _cartBloc.state,
-      builder: (context, snapshot) {
-        if (snapshot.hasData) {
-          final cartState = snapshot.data as CartState;
-
-          return Stack(
-            children: <Widget>[
-              Icon(Icons.shopping_cart),
-              Positioned(
-                right: 0,
-                child: Container(
-                  padding: EdgeInsets.all(1),
-                  decoration: BoxDecoration(
-                    color: Colors.red,
-                    borderRadius: BorderRadius.circular(6),
-                  ),
-                  constraints: BoxConstraints(
-                    minWidth: 12,
-                    minHeight: 12,
-                  ),
-                  child: Text(
-                    "${cartState.itemsCount}",
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 8,
-                    ),
-                    textAlign: TextAlign.center,
-                  ),
+    return Stack(
+      children: <Widget>[
+        IconButton(
+          icon: Icon(Icons.shopping_cart),
+          onPressed: () {
+            print("I was pressed");
+            push(context, CartPage());
+          },
+        ),
+        Consumer<CartBloc>(builder: (context, cartBloc, _) {
+          if (cartBloc.isEmpty)
+            return Container();
+          else
+            return Positioned(
+              right: 0,
+              child: Container(
+                padding: EdgeInsets.all(1),
+                decoration: BoxDecoration(
+                  color: Colors.red,
+                  borderRadius: BorderRadius.circular(6),
                 ),
-              )
-            ],
-          );
-        } else {
-          return Icon(Icons.shopping_cart);
-        }
-      },
+                constraints: BoxConstraints(
+                  minWidth: 12,
+                  minHeight: 12,
+                ),
+                child: Text(
+                  "${cartBloc.itemsCount}",
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 8,
+                  ),
+                  textAlign: TextAlign.center,
+                ),
+              ),
+            );
+        }),
+      ],
     );
   }
 }

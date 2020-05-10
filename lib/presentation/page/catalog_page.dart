@@ -1,5 +1,4 @@
 import 'package:caderninho/domain/catalog/search.dart';
-import 'package:caderninho/presentation/bloc/cart_bloc.dart';
 import 'package:caderninho/presentation/navigator.dart';
 import 'package:caderninho/presentation/page/new_product_page.dart';
 import 'package:caderninho/presentation/widgets/cart_icon.dart';
@@ -18,7 +17,6 @@ class CatalogPage extends StatefulWidget {
 class _CatalogPageState extends State<CatalogPage> {
   final title = "Caderninho";
   CatalogBloc catalogBloc;
-  CartBloc cartBloc;
 
   @override
   void initState() {
@@ -29,12 +27,11 @@ class _CatalogPageState extends State<CatalogPage> {
 
   @override
   Widget build(BuildContext context) {
-    cartBloc = Provider.of<CartBloc>(context);
 
     return Scaffold(
       appBar: AppBar(
         title: Text(title),
-        actions: <Widget>[CartIcon(cartBloc)],
+        actions: <Widget>[CartIcon()],
       ),
       body: CatalogWidget(catalogBloc),
       floatingActionButton: FloatingActionButton(

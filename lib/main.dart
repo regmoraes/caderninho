@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
         Provider<CatalogBloc>(
           create: (_) => CatalogBloc(fetchCatalog, addProduct),
         ),
-        Provider<CartBloc>(
+        ChangeNotifierProvider<CartBloc>(
           create: (_) => CartBloc(),
         )
       ],
