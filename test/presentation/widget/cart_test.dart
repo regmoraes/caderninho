@@ -29,7 +29,7 @@ void main() {
   });
 
   group("Given a non empty Cart", () {
-    testWidgets("When cart is not empty it should show item count",
+    testWidgets("It should show item count",
         (tester) async {
           final cartIcon = CartIcon();
 
