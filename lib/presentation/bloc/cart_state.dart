@@ -1,4 +1,4 @@
-import 'package:caderninho/domain/shopping_cart/cart_item.dart';
+import 'package:caderninho/domain/cart/cart_item.dart';
 import 'package:equatable/equatable.dart';
 
 abstract class CartState extends Equatable {

@@ -1,7 +1,7 @@
 import 'dart:collection';
 
+import 'package:caderninho/domain/cart/cart_item.dart';
 import 'package:caderninho/domain/catalog/product.dart';
-import 'package:caderninho/domain/shopping_cart/cart_item.dart';
 import 'package:flutter/material.dart';
 
 class CartBloc with ChangeNotifier {

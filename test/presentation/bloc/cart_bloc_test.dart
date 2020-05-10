@@ -1,5 +1,5 @@
+import 'package:caderninho/domain/cart/cart_item.dart';
 import 'package:caderninho/domain/catalog/product.dart';
-import 'package:caderninho/domain/shopping_cart/cart_item.dart';
 import 'package:caderninho/presentation/bloc/cart_bloc.dart';
 import 'package:flutter_test/flutter_test.dart';
 
@@ -42,7 +42,7 @@ void main() {
     });
 
     test(
-        "When adding same products it should update total and unique items count",
+        "When adding same product it should update total and unique items count",
             () {
           cartBloc.add(ball);
           cartBloc.add(ball);
