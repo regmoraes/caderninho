@@ -1,16 +1,16 @@
-import 'package:caderninho/domain/catalog/product.dart';
-import 'package:caderninho/presentation/bloc/cart_bloc.dart';
+import 'package:caderninho/bloc/cart_bloc.dart';
+import 'package:caderninho/model/catalog/product.dart';
 import 'package:caderninho/presentation/widgets/cart_icon.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:provider/provider.dart';
 
 void main() {
-  CartBloc _cartBloc;
+  ShoppingCartBloc _cartBloc;
   final ball = Product(id: 1, name: "Ball", description: "A ball", price: 10);
 
   setUp(() {
-    _cartBloc = CartBloc();
+    _cartBloc = ShoppingCartBloc();
   });
 
   group("Given an empty Cart", () {
@@ -33,19 +33,19 @@ void main() {
         (tester) async {
           final cartIcon = CartIcon();
 
-          await tester.pumpWidget(
-            ChangeNotifierProvider.value(
-                value: _cartBloc,
-                child: MaterialApp(home: Scaffold(body: cartIcon))),
-          );
+      await tester.pumpWidget(
+        ChangeNotifierProvider.value(
+            value: _cartBloc,
+            child: MaterialApp(home: Scaffold(body: cartIcon))),
+      );
 
-      _cartBloc.add(ball);
-      _cartBloc.add(ball);
+      _cartBloc.addToCart(ball);
+      _cartBloc.addToCart(ball);
 
       await tester.idle();
       await tester.pump(Duration.zero);
 
-          expect(find.byWidget(cartIcon), findsOneWidget);
+      expect(find.byWidget(cartIcon), findsOneWidget);
       expect(find.text("2"), findsOneWidget);
     });
   });

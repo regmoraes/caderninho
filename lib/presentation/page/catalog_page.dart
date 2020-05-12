@@ -1,13 +1,13 @@
-import 'package:caderninho/domain/catalog/search.dart';
+import 'package:caderninho/bloc/catalog_bloc.dart';
+import 'package:caderninho/bloc/catalog_states.dart';
+import 'package:caderninho/model/catalog/search.dart';
 import 'package:caderninho/presentation/navigator.dart';
-import 'package:caderninho/presentation/page/new_product_page.dart';
 import 'package:caderninho/presentation/widgets/cart_icon.dart';
 import 'package:caderninho/presentation/widgets/catalog.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../bloc/catalog_bloc.dart';
-import '../bloc/catalog_states.dart';
+import 'new_product_page.dart';
 
 class CatalogPage extends StatefulWidget {
   @override
@@ -27,7 +27,6 @@ class _CatalogPageState extends State<CatalogPage> {
 
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
       appBar: AppBar(
         title: Text(title),

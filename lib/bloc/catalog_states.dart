@@ -1,4 +1,4 @@
-import 'package:caderninho/domain/catalog/catalog.dart';
+import 'package:caderninho/model/catalog/catalog.dart';
 import 'package:equatable/equatable.dart';
 
 abstract class CatalogState extends Equatable {}

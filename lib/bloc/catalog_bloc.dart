@@ -1,9 +1,8 @@
 import 'dart:async';
 
-import 'package:caderninho/application/add_product.dart';
-import 'package:caderninho/application/fetch_catalog.dart';
-import 'package:caderninho/domain/catalog/product.dart';
-import 'package:caderninho/domain/catalog/search.dart';
+import 'package:caderninho/infrastructure/catalog_repository.dart';
+import 'package:caderninho/model/catalog/product.dart';
+import 'package:caderninho/model/catalog/search.dart';
 
 import 'catalog_states.dart';
 

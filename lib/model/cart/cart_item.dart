@@ -1,4 +1,4 @@
-import 'package:caderninho/domain/catalog/product.dart';
+import 'package:caderninho/model/catalog/product.dart';
 import 'package:equatable/equatable.dart';
 
 class CartItem extends Equatable {

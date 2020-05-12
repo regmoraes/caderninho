@@ -1,10 +1,11 @@
-import 'package:caderninho/presentation/bloc/cart_bloc.dart';
-import 'package:caderninho/presentation/bloc/catalog_bloc.dart';
-import 'package:caderninho/presentation/page/catalog_page.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:provider/provider.dart';
 
-import 'infrastructure/di/application_provider.dart';
+import 'bloc/cart_bloc.dart';
+import 'bloc/catalog_bloc.dart';
+import 'infrastructure/in_memory_catalog.dart';
+import 'presentation/page/catalog_page.dart';
 
 void main() => runApp(MyApp());
 
@@ -14,10 +15,11 @@ class MyApp extends StatelessWidget {
     return MultiProvider(
       providers: [
         Provider<CatalogBloc>(
-          create: (_) => CatalogBloc(fetchCatalog, addProduct),
+          create: (_) =>
+              CatalogBloc(InMemoryCatalog.fetch, InMemoryCatalog.addProduct),
         ),
-        ChangeNotifierProvider<CartBloc>(
-          create: (_) => CartBloc(),
+        ChangeNotifierProvider<ShoppingCartBloc>(
+          create: (_) => ShoppingCartBloc(),
         )
       ],
       child: MaterialApp(

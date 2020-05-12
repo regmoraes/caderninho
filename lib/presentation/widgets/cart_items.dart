@@ -1,5 +1,5 @@
-import 'package:caderninho/domain/cart/cart_item.dart';
-import 'package:caderninho/presentation/bloc/cart_bloc.dart';
+import 'package:caderninho/bloc/cart_bloc.dart';
+import 'package:caderninho/model/cart/cart_item.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -10,16 +10,16 @@ class CartItemsWidget extends StatelessWidget {
     final double itemHeight = (size.height - 200) / 2;
     final double itemWidth = size.width / 2;
 
-    return Consumer<CartBloc>(
+    return Consumer<ShoppingCartBloc>(
       builder: (context, cartBloc, child) {
         return GridView.builder(
           gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: 2,
             childAspectRatio: itemWidth / itemHeight,
           ),
-          itemCount: cartBloc.cartItems.length,
+          itemCount: cartBloc.shoppingCart.cartItems.length,
           itemBuilder: (context, index) =>
-              _cartItem(context, cartBloc.cartItems[index]),
+              _cartItem(context, cartBloc.shoppingCart.cartItems[index]),
         );
       },
     );
@@ -50,11 +50,13 @@ class CartItemsWidget extends StatelessWidget {
               "Quantity: ${cartItem.quantity}",
               textAlign: TextAlign.center,
             )),
-            Consumer<CartBloc>(
-              builder: (context, cartBloc, _) => RaisedButton(
-                child: Text("Remover"),
-                onPressed: () => cartBloc.remove(cartItem.product.id),
-              ),
+            Consumer<ShoppingCartBloc>(
+              builder: (context, cartBloc, _) =>
+                  RaisedButton(
+                    child: Text("Remover"),
+                    onPressed: () =>
+                        cartBloc.removeFromCart(cartItem.product.id),
+                  ),
             ),
           ],
         ),

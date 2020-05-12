@@ -1,8 +1,8 @@
 import 'dart:math';
 
-import 'package:caderninho/domain/catalog/product.dart';
-import 'package:caderninho/presentation/bloc/catalog_bloc.dart';
-import 'package:caderninho/presentation/bloc/catalog_states.dart';
+import 'package:caderninho/bloc/catalog_bloc.dart';
+import 'package:caderninho/bloc/catalog_states.dart';
+import 'package:caderninho/model/catalog/product.dart';
 import 'package:flutter/material.dart';
 
 class ProductForm extends StatelessWidget {

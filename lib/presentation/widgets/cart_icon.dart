@@ -1,4 +1,4 @@
-import 'package:caderninho/presentation/bloc/cart_bloc.dart';
+import 'package:caderninho/bloc/cart_bloc.dart';
 import 'package:caderninho/presentation/navigator.dart';
 import 'package:caderninho/presentation/page/cart_page.dart';
 import 'package:flutter/material.dart';
@@ -16,8 +16,8 @@ class CartIcon extends StatelessWidget {
             push(context, CartPage());
           },
         ),
-        Consumer<CartBloc>(builder: (context, cartBloc, _) {
-          if (cartBloc.isEmpty)
+        Consumer<ShoppingCartBloc>(builder: (context, cartBloc, _) {
+          if (cartBloc.shoppingCart.isEmpty)
             return Container();
           else
             return Positioned(
@@ -33,7 +33,7 @@ class CartIcon extends StatelessWidget {
                   minHeight: 12,
                 ),
                 child: Text(
-                  "${cartBloc.itemsCount}",
+                  "${cartBloc.shoppingCart.itemsCount}",
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 8,
