@@ -6,7 +6,7 @@ import 'package:caderninho/model/catalog/product.dart';
 class ShoppingCart {
   final _cartItemsMap = HashMap<int, CartItem>();
 
-  List<CartItem> get cartItems => _cartItemsMap.values.toList();
+  List<CartItem> get cartItems => List.unmodifiable(_cartItemsMap.values);
 
   int get totalPrice => cartItems
       .map((item) => item.product.price * item.quantity)
