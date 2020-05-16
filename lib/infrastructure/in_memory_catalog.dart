@@ -6,17 +6,19 @@ import 'package:caderninho/model/catalog/search.dart';
 
 import 'catalog_repository.dart';
 
-class InMemoryCatalog {
-  static final HashMap<int, Product> _products = HashMap();
+class InMemoryCatalog implements CatalogRepository {
+  final HashMap<int, Product> _products = HashMap();
 
-  static final AddProduct addProduct = (product) {
+  @override
+  Future<bool> addProductToCatalog(Product product) {
     _products[product.id] = product;
     return Future.value(true);
-  };
+  }
 
-  static final FetchCatalog fetch = (CatalogSearch searchTerm) {
+  @override
+  Future<Catalog> fetchCatalog(CatalogSearch catalogSearch) {
     final catalog =
         Catalog(_products.entries.map((entry) => entry.value).toList());
     return Future.value(catalog);
-  };
+  }
 }

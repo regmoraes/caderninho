@@ -7,25 +7,24 @@ import 'package:caderninho/model/catalog/search.dart';
 import 'catalog_states.dart';
 
 class CatalogBloc {
-  final FetchCatalog _fetchCatalog;
-  final AddProduct _addProduct;
+  final CatalogRepository catalogRepository;
 
   final _catalogStreamController = StreamController<CatalogState>.broadcast();
 
   Stream<CatalogState> get state => _catalogStreamController.stream;
 
-  CatalogBloc(this._fetchCatalog, this._addProduct);
+  CatalogBloc(this.catalogRepository);
 
   void fetchCatalog(CatalogSearch search) async {
     _catalogStreamController.add(Fetching());
-    final fetchResult = await _fetchCatalog(search);
+    final fetchResult = await catalogRepository.fetchCatalog(search);
     _catalogStreamController.add(Fetched(fetchResult));
   }
 
   void addProductToCatalog(Product product) async {
     _catalogStreamController.add(AddingProduct());
 
-    final addSuccessful = await _addProduct(product);
+    final addSuccessful = await catalogRepository.addProductToCatalog(product);
 
     if (addSuccessful)
       _catalogStreamController.add(ProductAdded());

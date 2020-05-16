@@ -15,8 +15,7 @@ class MyApp extends StatelessWidget {
     return MultiProvider(
       providers: [
         Provider<CatalogBloc>(
-          create: (_) =>
-              CatalogBloc(InMemoryCatalog.fetch, InMemoryCatalog.addProduct),
+          create: (_) => CatalogBloc(InMemoryCatalog()),
         ),
         ChangeNotifierProvider<ShoppingCartBloc>(
           create: (_) => ShoppingCartBloc(),
