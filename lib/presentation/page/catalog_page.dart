@@ -4,6 +4,7 @@ import 'package:caderninho/model/catalog/search.dart';
 import 'package:caderninho/presentation/navigator.dart';
 import 'package:caderninho/presentation/widgets/cart_icon.dart';
 import 'package:caderninho/presentation/widgets/catalog.dart';
+import 'package:caderninho/presentation/widgets/navigation_drawer.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -15,7 +16,7 @@ class CatalogPage extends StatefulWidget {
 }
 
 class _CatalogPageState extends State<CatalogPage> {
-  final title = "Caderninho";
+  final title = "Catalog";
   CatalogBloc catalogBloc;
 
   @override
@@ -33,6 +34,7 @@ class _CatalogPageState extends State<CatalogPage> {
         actions: <Widget>[CartIcon()],
       ),
       body: CatalogWidget(catalogBloc),
+      drawer: NavigationDrawer(),
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.add),
         onPressed: () async {
