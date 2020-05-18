@@ -1,4 +1,5 @@
 import 'package:caderninho/presentation/page/catalog_page.dart';
+import 'package:caderninho/presentation/page/customers_page.dart';
 import 'package:caderninho/presentation/page/dashboard_page.dart';
 import 'package:flutter/material.dart';
 
@@ -26,6 +27,7 @@ class NavigationDrawer extends StatelessWidget {
           ListTile(
             leading: Icon(Icons.person),
             title: Text('Customers'),
+            onTap: () => push(context, CustomersPage(), replace: true),
           ),
           ListTile(
             leading: Icon(Icons.local_offer),
