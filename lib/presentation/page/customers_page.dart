@@ -2,9 +2,9 @@ import 'package:caderninho/bloc/customer_states.dart';
 import 'package:caderninho/bloc/customers_bloc.dart';
 import 'package:caderninho/model/customer/search.dart';
 import 'package:caderninho/presentation/page/new_customer_page.dart';
-import 'package:caderninho/presentation/widgets/cart_icon.dart';
 import 'package:caderninho/presentation/widgets/customers.dart';
 import 'package:caderninho/presentation/widgets/navigation_drawer.dart';
+import 'package:caderninho/presentation/widgets/order_icon.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -31,7 +31,7 @@ class _CustomersPageState extends State<CustomersPage> {
     return Scaffold(
       appBar: AppBar(
         title: Text(title),
-        actions: <Widget>[CartIcon()],
+        actions: <Widget>[OrderIcon()],
       ),
       body: CustomersWidget(customerBloc),
       drawer: NavigationDrawer(),

@@ -38,7 +38,7 @@ class ProductForm extends StatelessWidget {
                 child: Text("Ok"),
                 onPressed: () {
                   final product = _formController.toProduct();
-                  _catalogBloc.addProductToCatalog(product);
+                  _catalogBloc.addProduct(product);
                 },
               );
             }

@@ -1,5 +1,5 @@
-import 'package:caderninho/presentation/widgets/cart_items.dart';
-import 'package:caderninho/presentation/widgets/cart_resume.dart';
+import 'package:caderninho/presentation/widgets/order_items.dart';
+import 'package:caderninho/presentation/widgets/order_resume.dart';
 import 'package:flutter/material.dart';
 
 class CartPage extends StatefulWidget {
@@ -16,8 +16,8 @@ class _CartPageState extends State<CartPage> {
       appBar: AppBar(
         title: Text(title),
       ),
-      body: CartItemsWidget(),
-      bottomNavigationBar: CartResume(),
+      body: OrderItemsWidget(),
+      bottomNavigationBar: OrderResume(),
     );
   }
 }

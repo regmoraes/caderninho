@@ -10,7 +10,7 @@ class InMemoryCatalog implements CatalogRepository {
   final HashMap<int, Product> _products = HashMap();
 
   @override
-  Future<bool> addProductToCatalog(Product product) {
+  Future<bool> addProduct(Product product) {
     _products[product.id] = product;
     return Future.value(true);
   }

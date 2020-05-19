@@ -1,5 +1,5 @@
-import 'package:caderninho/presentation/widgets/cart_icon.dart';
 import 'package:caderninho/presentation/widgets/navigation_drawer.dart';
+import 'package:caderninho/presentation/widgets/order_icon.dart';
 import 'package:flutter/material.dart';
 
 class DashboardPage extends StatefulWidget {
@@ -15,7 +15,7 @@ class _DashboardPageState extends State<DashboardPage> {
     return Scaffold(
       appBar: AppBar(
         title: Text(title),
-        actions: <Widget>[CartIcon()],
+        actions: <Widget>[OrderIcon()],
       ),
       body: Container(),
       drawer: NavigationDrawer(),

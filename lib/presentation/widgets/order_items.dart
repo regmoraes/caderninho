@@ -1,31 +1,31 @@
-import 'package:caderninho/bloc/cart_bloc.dart';
-import 'package:caderninho/model/cart/cart_item.dart';
+import 'package:caderninho/bloc/order_bloc.dart';
+import 'package:caderninho/model/order/order_item.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-class CartItemsWidget extends StatelessWidget {
+class OrderItemsWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
     final double itemHeight = (size.height - 200) / 2;
     final double itemWidth = size.width / 2;
 
-    return Consumer<ShoppingCartBloc>(
-      builder: (context, cartBloc, child) {
+    return Consumer<OrderBloc>(
+      builder: (context, orderBloc, child) {
         return GridView.builder(
           gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: 2,
             childAspectRatio: itemWidth / itemHeight,
           ),
-          itemCount: cartBloc.shoppingCart.cartItems.length,
+          itemCount: orderBloc.order.items.length,
           itemBuilder: (context, index) =>
-              _cartItem(context, cartBloc.shoppingCart.cartItems[index]),
+              _orderItem(context, orderBloc.order.items[index]),
         );
       },
     );
   }
 
-  Widget _cartItem(BuildContext context, CartItem cartItem) {
+  Widget _orderItem(BuildContext context, OrderItem orderItem) {
     return GestureDetector(
       child: Card(
         clipBehavior: null,
@@ -37,25 +37,25 @@ class CartItemsWidget extends StatelessWidget {
           children: <Widget>[
             Container(
                 child: Text(
-              "${cartItem.product.name}",
+              "${orderItem.product.name}",
               textAlign: TextAlign.center,
             )),
             Container(
                 child: Text(
-              "\$ ${cartItem.product.price}",
+                  "\$ ${orderItem.product.price}",
               textAlign: TextAlign.center,
             )),
             Container(
                 child: Text(
-              "Quantity: ${cartItem.quantity}",
+                  "Quantity: ${orderItem.quantity}",
               textAlign: TextAlign.center,
             )),
-            Consumer<ShoppingCartBloc>(
-              builder: (context, cartBloc, _) =>
+            Consumer<OrderBloc>(
+              builder: (context, orderBloc, _) =>
                   RaisedButton(
                     child: Text("Remover"),
                     onPressed: () =>
-                        cartBloc.removeFromCart(cartItem.product.id),
+                        orderBloc.removeProduct(orderItem.product.id),
                   ),
             ),
           ],
