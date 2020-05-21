@@ -13,21 +13,19 @@ void main() {
   CatalogBloc catalogBloc;
 
   group("Given a Catalog", () {
-    final catalog = Catalog([ball, bat]);
-
     setUp(() {
       catalogRepositoryMock = CatalogRepositoryMock();
       catalogBloc = CatalogBloc(catalogRepositoryMock);
-      when(catalogRepositoryMock.addProduct(any))
-          .thenAnswer((_) => Future.value(true));
     });
 
     test("When fetching catalog it should emit correct stream of states",
         () async {
-      when(catalogRepositoryMock.fetchCatalog(any))
-          .thenAnswer((_) => Future.value(catalog));
+      final expectedCatalog = Catalog([ball, bat]);
 
-      final expectedStates = {Fetching(), Fetched(catalog)};
+      when(catalogRepositoryMock.fetchCatalog(any))
+              .thenAnswer((_) => Future.value(expectedCatalog));
+
+          final expectedStates = {Fetching(), Fetched(expectedCatalog)};
 
           expectLater(catalogBloc.state, emitsInOrder(expectedStates));
 
@@ -37,23 +35,15 @@ void main() {
     test(
         "When adding product it should emit correct stream of states if its successful",
             () async {
+          final expectedCatalog = Catalog([ball, bat, ball]);
+
           when(catalogRepositoryMock.addProduct(any))
-              .thenAnswer((_) => Future.value(true));
+              .thenAnswer((_) => Future.value(expectedCatalog));
 
-          final expectedStates = {AddingProduct(), ProductAdded()};
-
-          expectLater(catalogBloc.state, emitsInOrder(expectedStates));
-
-          catalogBloc.addProduct(ball);
-        });
-
-    test(
-        "When adding product it should emit correct stream of states if has error",
-            () async {
-          when(catalogRepositoryMock.addProduct(any))
-              .thenAnswer((_) => Future.value(false));
-
-          final expectedStates = {AddingProduct(), ErrorWhileAdding()};
+          final expectedStates = [
+            AddingProduct(),
+            ProductAdded(expectedCatalog)
+          ];
 
           expectLater(catalogBloc.state, emitsInOrder(expectedStates));
 

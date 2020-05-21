@@ -28,8 +28,12 @@ class AddingProduct extends CatalogState {
 }
 
 class ProductAdded extends CatalogState {
+  final Catalog catalog;
+
+  ProductAdded(this.catalog);
+
   @override
-  List<Object> get props => [];
+  List<Object> get props => [catalog];
 }
 
 class ErrorWhileAdding extends CatalogState {

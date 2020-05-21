@@ -24,11 +24,8 @@ class CatalogBloc {
   void addProduct(Product product) async {
     _catalogStreamController.add(AddingProduct());
 
-    final addSuccessful = await catalogRepository.addProduct(product);
+    final updatedCatalog = await catalogRepository.addProduct(product);
 
-    if (addSuccessful)
-      _catalogStreamController.add(ProductAdded());
-    else
-      _catalogStreamController.add(ErrorWhileAdding());
+    _catalogStreamController.add(ProductAdded(updatedCatalog));
   }
 }

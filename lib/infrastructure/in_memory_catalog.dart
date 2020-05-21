@@ -9,16 +9,16 @@ import 'catalog_repository.dart';
 class InMemoryCatalog implements CatalogRepository {
   final HashMap<int, Product> _products = HashMap();
 
+  Catalog get _catalog => Catalog(_products.values.toList());
+
   @override
-  Future<bool> addProduct(Product product) {
+  Future<Catalog> addProduct(Product product) {
     _products[product.id] = product;
-    return Future.value(true);
+    return Future.value(_catalog);
   }
 
   @override
   Future<Catalog> fetchCatalog(CatalogSearch catalogSearch) {
-    final catalog =
-        Catalog(_products.entries.map((entry) => entry.value).toList());
-    return Future.value(catalog);
+    return Future.value(_catalog);
   }
 }
