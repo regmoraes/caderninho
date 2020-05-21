@@ -9,8 +9,10 @@ class OrderIcon extends StatelessWidget {
   Widget build(BuildContext context) {
     return Consumer<OrderBloc>(
       builder: (context, orderBloc, child) {
-        if (!orderBloc.hasOnGoingOrder || orderBloc.order.isEmpty) {
+        if (!orderBloc.hasOnGoingOrder) {
           return Container();
+        } else if (orderBloc.order.isEmpty) {
+          return child;
         } else {
           return Stack(
             children: <Widget>[
