@@ -1,6 +1,7 @@
-import 'package:caderninho/bloc/customer_states.dart';
+import 'dart:math';
+
 import 'package:caderninho/bloc/customers_bloc.dart';
-import 'package:caderninho/presentation/widgets/new_customer_form.dart';
+import 'package:caderninho/model/customer/customer.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -13,29 +14,45 @@ class NewCustomerPage extends StatefulWidget {
 
 class _NewCustomerPageState extends State<NewCustomerPage> {
   final title = "New Customer";
-  CustomersBloc customersBloc;
-
-  @override
-  void initState() {
-    super.initState();
-
-    customersBloc = Provider.of<CustomersBloc>(context, listen: false);
-
-    customersBloc.state.listen(
-      (state) {
-        if (state is CustomerAdded) {
-          pop(context, state);
-        }
-      },
-    );
-  }
+  final _formController = _FormController();
 
   @override
   Widget build(BuildContext context) {
+    final customerBloc = Provider.of<CustomerBloc>(context);
+
     return Scaffold(
-        appBar: AppBar(
-          title: Text(title),
-        ),
-        body: CustomerForm(customersBloc));
+      appBar: AppBar(
+        title: Text(title),
+      ),
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          TextField(
+            controller: _formController.name,
+          ),
+          RaisedButton(
+            child: Text("Ok"),
+            onPressed: () {
+              customerBloc.addCustomer(_formController.buildCustomer());
+              pop(context);
+            },
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class _FormController {
+  final name = TextEditingController();
+  final description = TextEditingController();
+  final price = TextEditingController();
+
+  Customer buildCustomer() {
+    return Customer(
+      // TODO Remove random id generation
+      id: Random().nextInt(100),
+      name: name.text,
+    );
   }
 }

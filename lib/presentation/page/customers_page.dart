@@ -17,12 +17,12 @@ class CustomersPage extends StatefulWidget {
 
 class _CustomersPageState extends State<CustomersPage> {
   final title = "Customers";
-  CustomersBloc customerBloc;
+  CustomerBloc customerBloc;
 
   @override
   void initState() {
     super.initState();
-    customerBloc = Provider.of<CustomersBloc>(context, listen: false);
+    customerBloc = Provider.of<CustomerBloc>(context, listen: false);
     customerBloc.fetchCustomer(FetchAll());
   }
 
@@ -33,15 +33,21 @@ class _CustomersPageState extends State<CustomersPage> {
         title: Text(title),
         actions: <Widget>[OrderIcon()],
       ),
-      body: CustomersWidget(customerBloc),
+      body: StreamBuilder(
+        stream: customerBloc.state,
+        builder: (context, snapshot) {
+          if (snapshot.data is Fetched)
+            return CustomersWidget(snapshot.data.customers);
+          else
+            return Center(child: CircularProgressIndicator());
+        },
+      ),
       drawer: NavigationDrawer(),
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.person_add),
         onPressed: () async {
-          final addProductResult = await push(context, NewCustomerPage());
-          if (addProductResult is CustomerAdded) {
-            customerBloc.fetchCustomer(FetchAll());
-          }
+          await push(context, NewCustomerPage());
+          customerBloc.fetchCustomer(EmptySearch());
         },
       ),
     );
