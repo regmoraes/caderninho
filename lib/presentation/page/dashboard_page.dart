@@ -1,6 +1,9 @@
+import 'package:caderninho/presentation/page/new_order_page.dart';
 import 'package:caderninho/presentation/widgets/navigation_drawer.dart';
 import 'package:caderninho/presentation/widgets/order_icon.dart';
 import 'package:flutter/material.dart';
+
+import '../navigator.dart';
 
 class DashboardPage extends StatefulWidget {
   @override
@@ -21,7 +24,7 @@ class _DashboardPageState extends State<DashboardPage> {
       drawer: NavigationDrawer(),
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.add_shopping_cart),
-        onPressed: () => null,
+        onPressed: () => push(context, NewOrderPage()),
       ),
     );
   }

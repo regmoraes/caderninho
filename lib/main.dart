@@ -19,8 +19,8 @@ class MyApp extends StatelessWidget {
         Provider<CatalogBloc>(
           create: (_) => CatalogBloc(InMemoryCatalog()),
         ),
-        Provider<CustomersBloc>(
-          create: (_) => CustomersBloc(InMemoryCustomers()),
+        Provider<CustomerBloc>(
+          create: (_) => CustomerBloc(InMemoryCustomers()),
         ),
         ChangeNotifierProvider<OrderBloc>(
           create: (_) => OrderBloc(),
