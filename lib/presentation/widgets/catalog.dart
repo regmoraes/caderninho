@@ -1,39 +1,30 @@
-import 'package:caderninho/bloc/catalog_bloc.dart';
-import 'package:caderninho/bloc/catalog_states.dart';
-import 'package:caderninho/bloc/order_bloc.dart';
+import 'package:caderninho/model/catalog/catalog.dart';
 import 'package:caderninho/model/catalog/product.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
+
+typedef void OnProductClicked(Product product);
 
 class CatalogWidget extends StatelessWidget {
-  final CatalogBloc _catalogBloc;
+  final Catalog catalog;
+  final bool hasOngoingOrder;
+  final OnProductClicked callback;
 
-  CatalogWidget(this._catalogBloc);
+  CatalogWidget(this.catalog, [this.hasOngoingOrder = false, this.callback]);
 
   @override
   Widget build(BuildContext context) {
-    var size = MediaQuery.of(context).size;
+    final size = MediaQuery.of(context).size;
     final double itemHeight = (size.height - 200) / 2;
     final double itemWidth = size.width / 2;
 
-    return StreamBuilder(
-      stream: _catalogBloc.state,
-      builder: (context, snapshot) {
-        if (snapshot.data is Fetched) {
-          final catalog = snapshot.data.catalog;
-          return GridView.builder(
-            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 2,
-              childAspectRatio: itemWidth / itemHeight,
-            ),
-            itemCount: catalog.products.length,
-            itemBuilder: (context, index) =>
-                _productItem(context, catalog.products[index]),
-          );
-        } else {
-          return _loading();
-        }
-      },
+    return GridView.builder(
+      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+        crossAxisCount: 2,
+        childAspectRatio: itemWidth / itemHeight,
+      ),
+      itemCount: catalog.products.length,
+      itemBuilder: (context, index) =>
+          _productItem(context, catalog.products[index]),
     );
   }
 
@@ -57,19 +48,23 @@ class CatalogWidget extends StatelessWidget {
               "\$ ${product.price}",
               textAlign: TextAlign.center,
             )),
-            Consumer<OrderBloc>(
-              builder: (context, cartBloc, _) => RaisedButton(
-                child: Text("Add to Cart"),
-                onPressed: () => cartBloc.addProduct(product),
-              ),
-            ),
+            buildAddToOrderButtonIfNeeded(hasOngoingOrder, product)
           ],
         ),
       ),
     );
   }
 
-  Widget _loading() {
-    return Center(child: CircularProgressIndicator());
+  Widget buildAddToOrderButtonIfNeeded(bool hasOngoingOrder, Product product) {
+    if (hasOngoingOrder) {
+      return RaisedButton(
+        child: Text("Add to Cart"),
+        onPressed: () {
+          if (callback != null) callback(product);
+        },
+      );
+    } else {
+      return Container();
+    }
   }
 }
