@@ -1,6 +1,6 @@
 import 'package:caderninho/bloc/order_bloc.dart';
 import 'package:caderninho/presentation/navigator.dart';
-import 'package:caderninho/presentation/page/cart_page.dart';
+import 'package:caderninho/presentation/page/order_page.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -9,9 +9,9 @@ class OrderIcon extends StatelessWidget {
   Widget build(BuildContext context) {
     return Consumer<OrderBloc>(
       builder: (context, orderBloc, child) {
-        if (!orderBloc.hasOnGoingOrder) {
+        if (!orderBloc.hasOngoingOrder) {
           return Container();
-        } else if (orderBloc.order.isEmpty) {
+        } else if (orderBloc.ongoingOrder.isEmpty) {
           return child;
         } else {
           return Stack(
@@ -30,7 +30,7 @@ class OrderIcon extends StatelessWidget {
                     minHeight: 12,
                   ),
                   child: Text(
-                    "${orderBloc.order.itemsCount}",
+                    "${orderBloc.ongoingOrder.itemsCount}",
                     style: TextStyle(
                       color: Colors.white,
                       fontSize: 8,
@@ -46,7 +46,7 @@ class OrderIcon extends StatelessWidget {
       child: IconButton(
         icon: Icon(Icons.shopping_cart),
         onPressed: () {
-          push(context, CartPage());
+          push(context, OrderPage());
         },
       ),
     );

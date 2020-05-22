@@ -4,5 +4,7 @@ import 'package:caderninho/model/order/order.dart';
 abstract class OrderRepository {
   Future<Order> newOrder(Customer customer);
 
-  Future<Order> fetchOrder(int orderId);
+  Future<List<Order>> fetchAll();
+
+  Future<bool> saveOrder(Order order);
 }

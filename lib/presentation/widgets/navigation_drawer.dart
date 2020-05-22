@@ -1,6 +1,7 @@
 import 'package:caderninho/presentation/page/catalog_page.dart';
 import 'package:caderninho/presentation/page/customers_page.dart';
 import 'package:caderninho/presentation/page/dashboard_page.dart';
+import 'package:caderninho/presentation/page/orders_page.dart';
 import 'package:flutter/material.dart';
 
 import '../navigator.dart';
@@ -33,6 +34,11 @@ class NavigationDrawer extends StatelessWidget {
             leading: Icon(Icons.local_offer),
             title: Text('Catalog'),
             onTap: () => push(context, CatalogPage(), replace: true),
+          ),
+          ListTile(
+            leading: Icon(Icons.shopping_cart),
+            title: Text('Orders'),
+            onTap: () => push(context, OrdersPage(), replace: true),
           )
         ],
       ),

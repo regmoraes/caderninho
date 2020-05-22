@@ -9,7 +9,7 @@ class OrderResume extends StatelessWidget {
       builder: (context, orderBloc, _) => BottomAppBar(
         color: Colors.blue,
         child: Text(
-          "Total price: \$${orderBloc.order.totalPrice}",
+          "Total price: \$${orderBloc.ongoingOrder?.totalPrice ?? 0}",
           textAlign: TextAlign.center,
           style: TextStyle(color: Colors.white),
         ),

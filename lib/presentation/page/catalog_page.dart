@@ -42,9 +42,9 @@ class _CatalogPageState extends State<CatalogPage> {
           if (snapshot.data is Fetched || snapshot.data is ProductAdded) {
             return CatalogWidget(
               snapshot.data.catalog,
-              orderBloc.hasOnGoingOrder,
+              orderBloc.hasOngoingOrder,
               (product) {
-                if (orderBloc.hasOnGoingOrder) orderBloc.addProduct(product);
+                if (orderBloc.hasOngoingOrder) orderBloc.addProduct(product);
               },
             );
           } else {

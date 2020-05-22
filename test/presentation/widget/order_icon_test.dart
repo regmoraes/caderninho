@@ -1,4 +1,5 @@
 import 'package:caderninho/bloc/order_bloc.dart';
+import 'package:caderninho/infrastructure/in_memory_order.dart';
 import 'package:caderninho/presentation/widgets/order_icon.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -10,7 +11,7 @@ void main() {
   OrderBloc _orderBloc;
 
   setUp(() {
-    _orderBloc = OrderBloc();
+    _orderBloc = OrderBloc(InMemoryOrder());
     _orderBloc.newOrder(testerCustomer);
   });
 

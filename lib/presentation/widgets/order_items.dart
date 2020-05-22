@@ -17,9 +17,9 @@ class OrderItemsWidget extends StatelessWidget {
             crossAxisCount: 2,
             childAspectRatio: itemWidth / itemHeight,
           ),
-          itemCount: orderBloc.order.items.length,
+          itemCount: orderBloc.ongoingOrder?.items?.length ?? List(),
           itemBuilder: (context, index) =>
-              _orderItem(context, orderBloc.order.items[index]),
+              _orderItem(context, orderBloc.ongoingOrder.items[index]),
         );
       },
     );
@@ -42,7 +42,7 @@ class OrderItemsWidget extends StatelessWidget {
             )),
             Container(
                 child: Text(
-                  "\$ ${orderItem.product.price}",
+              "\$ ${orderItem.product.price}",
               textAlign: TextAlign.center,
             )),
             Container(

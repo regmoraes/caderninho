@@ -1,3 +1,4 @@
+import 'package:caderninho/infrastructure/in_memory_order.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:provider/provider.dart';
@@ -23,7 +24,7 @@ class MyApp extends StatelessWidget {
           create: (_) => CustomerBloc(InMemoryCustomers()),
         ),
         ChangeNotifierProvider<OrderBloc>(
-          create: (_) => OrderBloc(),
+          create: (_) => OrderBloc(InMemoryOrder()),
         )
       ],
       child: MaterialApp(
