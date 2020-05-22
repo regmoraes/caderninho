@@ -16,10 +16,11 @@ class OrdersWidget extends StatelessWidget {
 
   Widget _customerEntry(BuildContext context, Order order) {
     return GestureDetector(
-        child: ListTile(
-      leading: Icon(Icons.shopping_cart),
-      title: Text("${order.customer.name}"),
-      trailing: Text("\$ ${order.totalPrice}"),
-    ));
+      child: ListTile(
+        leading: Icon(Icons.shopping_cart),
+        title: Text("${order.customer.name}"),
+        trailing: Text("\$ ${order.totalPrice}"),
+      ),
+    );
   }
 }
