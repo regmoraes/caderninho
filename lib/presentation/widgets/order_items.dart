@@ -17,7 +17,7 @@ class OrderItemsWidget extends StatelessWidget {
             crossAxisCount: 2,
             childAspectRatio: itemWidth / itemHeight,
           ),
-          itemCount: orderBloc.ongoingOrder?.items?.length ?? List(),
+          itemCount: orderBloc.ongoingOrder?.items?.length ?? 0,
           itemBuilder: (context, index) =>
               _orderItem(context, orderBloc.ongoingOrder.items[index]),
         );
