@@ -4,6 +4,7 @@ import 'package:caderninho/bloc/order_bloc.dart';
 import 'package:caderninho/model/customer/customer.dart';
 import 'package:caderninho/model/customer/search.dart';
 import 'package:caderninho/presentation/widgets/customers.dart';
+import 'package:caderninho/presentation/widgets/ok_button.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -57,9 +58,8 @@ class _NewOrderPage extends State<NewOrderPage> {
                 }
               },
             ),
-            RaisedButton(
-              child: Text("Ok"),
-              onPressed: () {
+            OkButton(
+              () {
                 if (widget._formController.selectedCustomer != null) {
                   orderBloc.newOrder(widget._formController.selectedCustomer);
                 }

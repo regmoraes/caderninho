@@ -3,6 +3,7 @@ import 'dart:math';
 import 'package:caderninho/bloc/catalog_bloc.dart';
 import 'package:caderninho/bloc/catalog_states.dart';
 import 'package:caderninho/model/catalog/product.dart';
+import 'package:caderninho/presentation/widgets/ok_button.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -24,7 +25,7 @@ class _NewProductPageState extends State<NewProductPage> {
 
     catalogBloc = Provider.of<CatalogBloc>(context, listen: false);
     catalogBloc.state.listen(
-          (state) {
+      (state) {
         if (state is ProductAdded) {
           pop(context, state);
         }
@@ -60,9 +61,7 @@ class _NewProductPageState extends State<NewProductPage> {
                   onPressed: null,
                 );
               } else {
-                return RaisedButton(
-                  child: Text("Ok"),
-                  onPressed: () {
+                return OkButton(() {
                     catalogBloc.addProduct(formController.buildProduct());
                   },
                 );

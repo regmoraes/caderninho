@@ -2,6 +2,7 @@ import 'dart:math';
 
 import 'package:caderninho/bloc/customers_bloc.dart';
 import 'package:caderninho/model/customer/customer.dart';
+import 'package:caderninho/presentation/widgets/ok_button.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -30,9 +31,8 @@ class _NewCustomerPageState extends State<NewCustomerPage> {
           TextField(
             controller: _formController.name,
           ),
-          RaisedButton(
-            child: Text("Ok"),
-            onPressed: () {
+          OkButton(
+            () {
               customerBloc.addCustomer(_formController.buildCustomer());
               pop(context);
             },
