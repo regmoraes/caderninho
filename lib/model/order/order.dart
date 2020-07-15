@@ -1,6 +1,7 @@
 import 'dart:collection';
 
 import 'package:caderninho/model/catalog/product.dart';
+import 'package:caderninho/model/catalog/sale_type.dart';
 import 'package:caderninho/model/customer/customer.dart';
 import 'package:equatable/equatable.dart';
 
@@ -9,14 +10,15 @@ import 'order_item.dart';
 class Order extends Equatable {
   final int id;
   final Customer customer;
+  final SaleType saleType;
   final _itemsMap = HashMap<int, OrderItem>();
 
-  Order({this.id, this.customer});
+  Order({this.id, this.customer, this.saleType = SaleType.INSTALMENT});
 
   List<OrderItem> get items => List.unmodifiable(_itemsMap.values);
 
   int get totalPrice => items
-      .map((item) => item.product.price * item.quantity)
+      .map((item) => item.product.priceInCents * item.quantity)
       .fold(0, (total, cartItemPrice) => total + cartItemPrice);
 
   int get itemsCount => items

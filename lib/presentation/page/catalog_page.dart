@@ -1,6 +1,5 @@
 import 'package:caderninho/bloc/catalog_bloc.dart';
 import 'package:caderninho/bloc/catalog_states.dart';
-import 'package:caderninho/bloc/order_bloc.dart';
 import 'package:caderninho/model/catalog/search.dart';
 import 'package:caderninho/presentation/navigator.dart';
 import 'package:caderninho/presentation/widgets/catalog.dart';
@@ -29,8 +28,6 @@ class _CatalogPageState extends State<CatalogPage> {
 
   @override
   Widget build(BuildContext context) {
-    final orderBloc = Provider.of<OrderBloc>(context);
-
     return Scaffold(
       appBar: AppBar(
         title: Text(title),
@@ -40,13 +37,7 @@ class _CatalogPageState extends State<CatalogPage> {
         stream: catalogBloc.state,
         builder: (context, snapshot) {
           if (snapshot.data is Fetched || snapshot.data is ProductAdded) {
-            return CatalogWidget(
-              snapshot.data.catalog,
-              orderBloc.hasOngoingOrder,
-              (product) {
-                if (orderBloc.hasOngoingOrder) orderBloc.addProduct(product);
-              },
-            );
+            return CatalogWidget(snapshot.data.catalog);
           } else {
             return Center(child: CircularProgressIndicator());
           }

@@ -3,29 +3,13 @@ import 'package:caderninho/model/order/order_item.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-class OrderItemsWidget extends StatelessWidget {
+class OrderItemWidget extends StatelessWidget {
+  final OrderItem orderItem;
+
+  OrderItemWidget(this.orderItem);
+
   @override
   Widget build(BuildContext context) {
-    var size = MediaQuery.of(context).size;
-    final double itemHeight = (size.height - 200) / 2;
-    final double itemWidth = size.width / 2;
-
-    return Consumer<OrderBloc>(
-      builder: (context, orderBloc, child) {
-        return GridView.builder(
-          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 2,
-            childAspectRatio: itemWidth / itemHeight,
-          ),
-          itemCount: orderBloc.ongoingOrder?.items?.length ?? 0,
-          itemBuilder: (context, index) =>
-              _orderItem(context, orderBloc.ongoingOrder.items[index]),
-        );
-      },
-    );
-  }
-
-  Widget _orderItem(BuildContext context, OrderItem orderItem) {
     return GestureDetector(
       child: Card(
         clipBehavior: null,
@@ -42,8 +26,8 @@ class OrderItemsWidget extends StatelessWidget {
             )),
             Container(
                 child: Text(
-              "\$ ${orderItem.product.price}",
-              textAlign: TextAlign.center,
+                  "\$ ${orderItem.product.priceInCents}",
+                  textAlign: TextAlign.center,
             )),
             Container(
                 child: Text(

@@ -7,12 +7,12 @@ final ball = Product(
   id: 1,
   name: "Ball",
   description: "A ball",
-  price: 100,
+  priceInCents: 100,
 );
 
 final bat = Product(
   id: 2,
   name: "Bat",
   description: "A baseball bat",
-  price: 500,
+  priceInCents: 500,
 );

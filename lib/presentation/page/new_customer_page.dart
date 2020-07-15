@@ -2,6 +2,7 @@ import 'dart:math';
 
 import 'package:caderninho/bloc/customers_bloc.dart';
 import 'package:caderninho/model/customer/customer.dart';
+import 'package:caderninho/presentation/widgets/custom_text_field.dart';
 import 'package:caderninho/presentation/widgets/ok_button.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -25,19 +26,23 @@ class _NewCustomerPageState extends State<NewCustomerPage> {
       appBar: AppBar(
         title: Text(title),
       ),
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
-          TextField(
-            controller: _formController.name,
-          ),
-          OkButton(
-            () {
-              customerBloc.addCustomer(_formController.buildCustomer());
-              pop(context);
-            },
-          ),
-        ],
+      body: Container(
+        padding: EdgeInsets.all(8),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            CustomTextField(
+              hintText: "Name",
+              controller: _formController.name,
+            ),
+            OkButton(
+              () {
+                customerBloc.addCustomer(_formController.buildCustomer());
+                pop(context);
+              },
+            ),
+          ],
+        ),
       ),
     );
   }

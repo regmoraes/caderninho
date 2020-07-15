@@ -1,6 +1,6 @@
 import 'package:caderninho/bloc/order_bloc.dart';
 import 'package:caderninho/presentation/navigator.dart';
-import 'package:caderninho/presentation/widgets/order_items.dart';
+import 'package:caderninho/presentation/widgets/order.dart';
 import 'package:caderninho/presentation/widgets/order_resume.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -30,7 +30,7 @@ class _OrderPageState extends State<OrderPage> {
           )
         ],
       ),
-      body: OrderItemsWidget(),
+      body: OrderWidget(),
       bottomNavigationBar: OrderResume(),
     );
   }
