@@ -1,0 +1,22 @@
+@startuml
+
+
+package Orders {
+[Order]
+}
+
+package Products {
+[Product] ..> ProductsRepository
+}
+
+package Customers {
+[Customer] ..>  CustomersRepository
+}
+
+[Order] .left.> Product
+[Order] <.right. Customer
+
+[Repository Infrastructure] -up- ProductsRepository
+[Repository Infrastructure] -up- CustomersRepository
+
+@enduml

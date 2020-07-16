@@ -1,8 +1,8 @@
 import 'dart:math';
 
-import 'package:caderninho/bloc/catalog_bloc.dart';
-import 'package:caderninho/bloc/catalog_states.dart';
-import 'package:caderninho/model/catalog/product.dart';
+import 'package:caderninho/catalog/bloc.dart';
+import 'package:caderninho/catalog/product.dart';
+import 'package:caderninho/catalog/states.dart';
 import 'package:caderninho/presentation/widgets/currency_field.dart';
 import 'package:caderninho/presentation/widgets/custom_text_field.dart';
 import 'package:caderninho/presentation/widgets/ok_button.dart';

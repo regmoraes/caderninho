@@ -1,9 +1,10 @@
 import 'dart:async';
 
-import 'package:caderninho/bloc/customer_states.dart';
-import 'package:caderninho/infrastructure/customer_repository.dart';
-import 'package:caderninho/model/customer/customer.dart';
-import 'package:caderninho/model/customer/search.dart';
+import 'package:caderninho/customer/repository.dart';
+import 'package:caderninho/customer/search.dart';
+import 'package:caderninho/customer/states.dart';
+
+import 'customer.dart';
 
 class CustomerBloc {
   final CustomerRepository customerRepository;

@@ -1,8 +1,8 @@
-import 'package:caderninho/model/order/order.dart';
-import 'package:caderninho/model/order/order_item.dart';
+import 'package:caderninho/order/order.dart';
+import 'package:caderninho/order/order_item.dart';
 import 'package:flutter_test/flutter_test.dart';
 
-import '../../test_stubs.dart';
+import '../test_stubs.dart';
 
 void main() {
   Order order;

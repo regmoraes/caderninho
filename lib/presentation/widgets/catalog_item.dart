@@ -1,5 +1,5 @@
-import 'package:caderninho/bloc/order_bloc.dart';
-import 'package:caderninho/model/catalog/product.dart';
+import 'package:caderninho/catalog/product.dart';
+import 'package:caderninho/order/bloc.dart';
 import 'package:caderninho/presentation/currency_formatter.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';

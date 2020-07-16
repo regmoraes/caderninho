@@ -1,5 +1,6 @@
-import 'package:caderninho/model/customer/customer.dart';
 import 'package:equatable/equatable.dart';
+
+import 'customer.dart';
 
 abstract class CustomerState extends Equatable {}
 

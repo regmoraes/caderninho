@@ -1,5 +1,5 @@
-import 'package:caderninho/model/catalog/catalog.dart';
-import 'package:caderninho/model/catalog/product.dart';
+import 'package:caderninho/catalog/catalog.dart';
+import 'package:caderninho/catalog/product.dart';
 import 'package:caderninho/presentation/widgets/catalog_item.dart';
 import 'package:flutter/material.dart';
 

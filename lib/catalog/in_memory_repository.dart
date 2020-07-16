@@ -1,10 +1,10 @@
 import 'dart:collection';
 
-import 'package:caderninho/model/catalog/catalog.dart';
-import 'package:caderninho/model/catalog/product.dart';
-import 'package:caderninho/model/catalog/search.dart';
+import 'package:caderninho/catalog/catalog.dart';
+import 'package:caderninho/catalog/product.dart';
+import 'package:caderninho/catalog/search.dart';
 
-import 'catalog_repository.dart';
+import 'repository.dart';
 
 class InMemoryCatalog implements CatalogRepository {
   final HashMap<int, Product> _products = HashMap();

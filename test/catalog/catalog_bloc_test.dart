@@ -1,12 +1,12 @@
-import 'package:caderninho/bloc/catalog_bloc.dart';
-import 'package:caderninho/bloc/catalog_states.dart';
-import 'package:caderninho/model/catalog/catalog.dart';
-import 'package:caderninho/model/catalog/search.dart';
+import 'package:caderninho/catalog/bloc.dart';
+import 'package:caderninho/catalog/catalog.dart';
+import 'package:caderninho/catalog/search.dart';
+import 'package:caderninho/catalog/states.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
 
-import '../infrastructure/catalog_mock.dart';
 import '../test_stubs.dart';
+import 'catalog_mock.dart';
 
 void main() {
   CatalogRepositoryMock catalogRepositoryMock;

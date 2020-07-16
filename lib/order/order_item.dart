@@ -1,4 +1,4 @@
-import 'package:caderninho/model/catalog/product.dart';
+import 'package:caderninho/catalog/product.dart';
 import 'package:equatable/equatable.dart';
 
 class OrderItem extends Equatable {

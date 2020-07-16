@@ -1,4 +1,4 @@
-import 'package:caderninho/model/customer/customer.dart';
+import 'package:caderninho/customer/customer.dart';
 
 abstract class CustomerRepository {
   Future<Customer> addCustomer(Customer customer);

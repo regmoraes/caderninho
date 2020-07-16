@@ -1,4 +1,4 @@
-import 'package:caderninho/model/order/order.dart';
+import 'package:caderninho/order/order.dart';
 import 'package:flutter/material.dart';
 
 class OrdersWidget extends StatelessWidget {

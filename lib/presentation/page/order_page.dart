@@ -1,4 +1,4 @@
-import 'package:caderninho/bloc/order_bloc.dart';
+import 'package:caderninho/order/bloc.dart';
 import 'package:caderninho/presentation/navigator.dart';
 import 'package:caderninho/presentation/widgets/order.dart';
 import 'package:caderninho/presentation/widgets/order_resume.dart';

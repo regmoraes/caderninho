@@ -1,10 +1,9 @@
 import 'dart:async';
 
-import 'package:caderninho/infrastructure/catalog_repository.dart';
-import 'package:caderninho/model/catalog/product.dart';
-import 'package:caderninho/model/catalog/search.dart';
-
-import 'catalog_states.dart';
+import 'product.dart';
+import 'repository.dart';
+import 'search.dart';
+import 'states.dart';
 
 class CatalogBloc {
   final CatalogRepository catalogRepository;

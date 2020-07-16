@@ -1,6 +1,6 @@
-import 'package:caderninho/bloc/customer_states.dart';
-import 'package:caderninho/bloc/customers_bloc.dart';
-import 'package:caderninho/model/customer/search.dart';
+import 'package:caderninho/customer/bloc.dart';
+import 'package:caderninho/customer/search.dart';
+import 'package:caderninho/customer/states.dart';
 import 'package:caderninho/presentation/page/new_customer_page.dart';
 import 'package:caderninho/presentation/widgets/customers.dart';
 import 'package:caderninho/presentation/widgets/navigation_drawer.dart';

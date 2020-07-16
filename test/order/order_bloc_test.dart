@@ -1,6 +1,6 @@
-import 'package:caderninho/bloc/order_bloc.dart';
-import 'package:caderninho/infrastructure/in_memory_order.dart';
-import 'package:caderninho/model/order/order_item.dart';
+import 'package:caderninho/order/bloc.dart';
+import 'package:caderninho/order/in_memory_repository.dart';
+import 'package:caderninho/order/order_item.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 import '../test_stubs.dart';

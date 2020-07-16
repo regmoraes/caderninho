@@ -1,8 +1,8 @@
 import 'dart:collection';
 
-import 'package:caderninho/model/catalog/product.dart';
-import 'package:caderninho/model/catalog/sale_type.dart';
-import 'package:caderninho/model/customer/customer.dart';
+import 'package:caderninho/catalog/product.dart';
+import 'package:caderninho/catalog/sale_type.dart';
+import 'package:caderninho/customer/customer.dart';
 import 'package:equatable/equatable.dart';
 
 import 'order_item.dart';

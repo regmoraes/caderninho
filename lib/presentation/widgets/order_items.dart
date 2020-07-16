@@ -1,5 +1,5 @@
-import 'package:caderninho/bloc/order_bloc.dart';
-import 'package:caderninho/model/order/order_item.dart';
+import 'package:caderninho/order/bloc.dart';
+import 'package:caderninho/order/order_item.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 

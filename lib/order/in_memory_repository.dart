@@ -1,8 +1,9 @@
 import 'dart:math';
 
-import 'package:caderninho/infrastructure/order_repository.dart';
-import 'package:caderninho/model/customer/customer.dart';
-import 'package:caderninho/model/order/order.dart';
+import 'package:caderninho/customer/customer.dart';
+
+import 'order.dart';
+import 'repository.dart';
 
 class InMemoryOrder implements OrderRepository {
   final _orders = List<Order>();

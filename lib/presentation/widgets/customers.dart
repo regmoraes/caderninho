@@ -1,4 +1,4 @@
-import 'package:caderninho/model/customer/customer.dart';
+import 'package:caderninho/customer/customer.dart';
 import 'package:flutter/material.dart';
 
 class CustomersWidget extends StatelessWidget {

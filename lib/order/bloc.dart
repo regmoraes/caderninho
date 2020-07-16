@@ -1,10 +1,10 @@
 import 'dart:async';
 import 'dart:math';
 
-import 'package:caderninho/infrastructure/order_repository.dart';
-import 'package:caderninho/model/catalog/product.dart';
-import 'package:caderninho/model/customer/customer.dart';
-import 'package:caderninho/model/order/order.dart';
+import 'package:caderninho/catalog/product.dart';
+import 'package:caderninho/customer/customer.dart';
+import 'package:caderninho/order/order.dart';
+import 'package:caderninho/order/repository.dart';
 import 'package:flutter/foundation.dart';
 
 class OrderBloc with ChangeNotifier {

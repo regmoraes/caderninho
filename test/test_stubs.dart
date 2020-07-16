@@ -1,5 +1,5 @@
-import 'package:caderninho/model/catalog/product.dart';
-import 'package:caderninho/model/customer/customer.dart';
+import 'package:caderninho/catalog/product.dart';
+import 'package:caderninho/customer/customer.dart';
 
 final testerCustomer = Customer(id: 1, name: "QA Tester");
 

@@ -1,13 +1,13 @@
-import 'package:caderninho/infrastructure/in_memory_order.dart';
+import 'package:caderninho/order/in_memory_repository.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:provider/provider.dart';
 
-import 'bloc/catalog_bloc.dart';
-import 'bloc/customers_bloc.dart';
-import 'bloc/order_bloc.dart';
-import 'infrastructure/in_memory_catalog.dart';
-import 'infrastructure/in_memory_customers.dart';
+import 'catalog/bloc.dart';
+import 'catalog/in_memory_repository.dart';
+import 'customer/bloc.dart';
+import 'customer/in_memory_repository.dart';
+import 'order/bloc.dart';
 import 'presentation/page/dashboard_page.dart';
 
 void main() => runApp(MyApp());
