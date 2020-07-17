@@ -1,4 +1,4 @@
-package com.example.caderninho
+package br.com.regmoraes.caderninho
 
 import androidx.annotation.NonNull;
 import io.flutter.embedding.android.FlutterActivity
