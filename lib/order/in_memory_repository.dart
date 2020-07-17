@@ -16,13 +16,14 @@ class InMemoryOrder implements OrderRepository {
   }
 
   @override
-  Future<bool> saveOrder(Order order) {
-    _orders.add(order);
-    return Future.value(true);
+  Future<List<Order>> fetchAllByCustomer(int customerId) {
+    return Future.value(
+        _orders.where((order) => order.customer.id == customerId).toList());
   }
 
   @override
-  Future<List<Order>> fetchAll() {
-    return Future.value(_orders);
+  Future<bool> saveOrder(Order order) {
+    _orders.add(order);
+    return Future.value(true);
   }
 }

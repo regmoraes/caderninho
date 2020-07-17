@@ -3,14 +3,14 @@ import 'package:caderninho/catalog/search.dart';
 import 'package:caderninho/catalog/states.dart';
 import 'package:caderninho/presentation/navigator.dart';
 import 'package:caderninho/presentation/widgets/catalog_widget.dart';
-import 'package:caderninho/presentation/widgets/navigation_drawer.dart';
-import 'package:caderninho/presentation/widgets/order_icon.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import 'new_product_page.dart';
 
 class CatalogPage extends StatefulWidget {
+  const CatalogPage();
+
   @override
   State createState() => _CatalogPageState();
 }
@@ -29,10 +29,6 @@ class _CatalogPageState extends State<CatalogPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(title),
-        actions: <Widget>[OrderIcon()],
-      ),
       body: StreamBuilder(
         stream: catalogBloc.state,
         builder: (context, snapshot) {
@@ -43,7 +39,6 @@ class _CatalogPageState extends State<CatalogPage> {
           }
         },
       ),
-      drawer: NavigationDrawer(),
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.add),
         onPressed: () => push(context, NewProductPage()),

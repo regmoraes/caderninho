@@ -1,30 +1,19 @@
 import 'package:caderninho/customer/customer.dart';
+import 'package:caderninho/presentation/widgets/customer_item.dart';
 import 'package:flutter/material.dart';
 
 class CustomersWidget extends StatelessWidget {
   final List<Customer> customers;
-  final void Function(Customer customer) onCustomerClick;
+  final OnCustomerClicked onCustomerClicked;
 
-  CustomersWidget(this.customers, [this.onCustomerClick]);
+  CustomersWidget(this.customers, {this.onCustomerClicked});
 
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
       itemCount: customers.length,
-      itemBuilder: (context, index) =>
-          _customerEntry(context, customers[index]),
-    );
-  }
-
-  Widget _customerEntry(BuildContext context, Customer costumer) {
-    return GestureDetector(
-      child: ListTile(
-        leading: Icon(Icons.person),
-        title: Text("${costumer.name}"),
-      ),
-      onTap: () {
-        if (onCustomerClick != null) onCustomerClick(costumer);
-      },
+      itemBuilder: (context, index) => CustomerItemWidget(customers[index],
+          onCustomerClicked: onCustomerClicked),
     );
   }
 }

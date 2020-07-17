@@ -1,5 +1,4 @@
 import 'package:caderninho/order/bloc.dart';
-import 'package:caderninho/presentation/widgets/navigation_drawer.dart';
 import 'package:caderninho/presentation/widgets/order_icon.dart';
 import 'package:caderninho/presentation/widgets/orders.dart';
 import 'package:flutter/material.dart';
@@ -8,12 +7,16 @@ import 'package:provider/provider.dart';
 import '../navigator.dart';
 import 'new_order_page.dart';
 
-class OrdersPage extends StatefulWidget {
+class CustomerOrdersPage extends StatefulWidget {
+  final int customerId;
+
+  CustomerOrdersPage(this.customerId);
+
   @override
-  State createState() => _OrdersPageState();
+  State createState() => _CustomerOrdersPageState();
 }
 
-class _OrdersPageState extends State<OrdersPage> {
+class _CustomerOrdersPageState extends State<CustomerOrdersPage> {
   final title = "Orders";
   OrderBloc orderBloc;
 
@@ -21,7 +24,7 @@ class _OrdersPageState extends State<OrdersPage> {
   void initState() {
     super.initState();
     orderBloc = Provider.of<OrderBloc>(context, listen: false);
-    orderBloc.fetchOrders();
+    orderBloc.fetchCustomerOrders(widget.customerId);
   }
 
   @override
@@ -37,7 +40,6 @@ class _OrdersPageState extends State<OrdersPage> {
           return OrdersWidget(snapshot?.data ?? List());
         },
       ),
-      drawer: NavigationDrawer(),
       floatingActionButton: Consumer<OrderBloc>(
         builder: (context, orderBloc, _) {
           if (orderBloc.hasOngoingOrder)

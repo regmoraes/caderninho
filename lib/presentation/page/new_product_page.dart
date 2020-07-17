@@ -1,11 +1,15 @@
 import 'dart:math';
 
+import 'package:caderninho/camera/camera_control.dart';
+import 'package:caderninho/camera/take_picture_page.dart';
 import 'package:caderninho/catalog/bloc.dart';
 import 'package:caderninho/catalog/product.dart';
 import 'package:caderninho/catalog/states.dart';
 import 'package:caderninho/presentation/widgets/currency_field.dart';
 import 'package:caderninho/presentation/widgets/custom_text_field.dart';
 import 'package:caderninho/presentation/widgets/ok_button.dart';
+import 'package:camera/camera.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -51,6 +55,18 @@ class _NewProductPageState extends State<NewProductPage> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
+            FutureBuilder<CameraDescription>(
+                future: camera,
+                builder: (context, snapshot) {
+                  if (snapshot.connectionState == ConnectionState.done)
+                    return GestureDetector(
+                      child: Text('take photo'),
+                      onTap: () =>
+                          push(context, TakePicturePage(camera: snapshot.data)),
+                    );
+                  else
+                    return CircularProgressIndicator();
+                }),
             CustomTextField(
               hintText: "Modelo",
               controller: formController.name,

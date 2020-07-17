@@ -47,7 +47,7 @@ class _NewOrderPage extends State<NewOrderPage> {
                   return Expanded(
                     child: CustomersWidget(
                       snapshot.data.customers,
-                      (costumer) {
+                      onCustomerClicked: (costumer) {
                         orderBloc.newOrder(costumer);
                         pop(context);
                       },

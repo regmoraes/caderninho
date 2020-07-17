@@ -1,24 +1,19 @@
-import 'package:caderninho/presentation/widgets/navigation_drawer.dart';
-import 'package:caderninho/presentation/widgets/order_icon.dart';
+import 'package:caderninho/presentation/widgets/new_order_fab.dart';
 import 'package:flutter/material.dart';
 
 class DashboardPage extends StatefulWidget {
+  const DashboardPage();
+
   @override
   State createState() => _DashboardPageState();
 }
 
 class _DashboardPageState extends State<DashboardPage> {
-  final title = "Caderninho";
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(title),
-        actions: <Widget>[OrderIcon()],
-      ),
-      body: Container(),
-      drawer: NavigationDrawer(),
+      body: Center(child: Text("Nothing here")),
+      floatingActionButton: NewOrderFloatActionButton(),
     );
   }
 }

@@ -1,4 +1,5 @@
 import 'package:caderninho/order/in_memory_repository.dart';
+import 'package:caderninho/presentation/page/home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:provider/provider.dart';
@@ -8,7 +9,6 @@ import 'catalog/in_memory_repository.dart';
 import 'customer/bloc.dart';
 import 'customer/in_memory_repository.dart';
 import 'order/bloc.dart';
-import 'presentation/page/dashboard_page.dart';
 
 void main() => runApp(MyApp());
 
@@ -32,7 +32,7 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           primarySwatch: Colors.blue,
         ),
-        home: DashboardPage(),
+        home: HomePage(),
       ),
     );
   }

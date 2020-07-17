@@ -1,16 +1,17 @@
 import 'package:caderninho/customer/bloc.dart';
 import 'package:caderninho/customer/search.dart';
 import 'package:caderninho/customer/states.dart';
+import 'package:caderninho/presentation/page/customer_orders_page.dart';
 import 'package:caderninho/presentation/page/new_customer_page.dart';
 import 'package:caderninho/presentation/widgets/customers.dart';
-import 'package:caderninho/presentation/widgets/navigation_drawer.dart';
-import 'package:caderninho/presentation/widgets/order_icon.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../navigator.dart';
 
 class CustomersPage extends StatefulWidget {
+  const CustomersPage();
+
   @override
   State createState() => _CustomersPageState();
 }
@@ -29,20 +30,19 @@ class _CustomersPageState extends State<CustomersPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(title),
-        actions: <Widget>[OrderIcon()],
-      ),
       body: StreamBuilder(
         stream: customerBloc.state,
         builder: (context, snapshot) {
           if (snapshot.data is Fetched)
-            return CustomersWidget(snapshot.data.customers);
+            return CustomersWidget(
+              snapshot.data.customers,
+              onCustomerClicked: (customer) =>
+                  push(context, CustomerOrdersPage(customer.id)),
+            );
           else
             return Center(child: CircularProgressIndicator());
         },
       ),
-      drawer: NavigationDrawer(),
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.person_add),
         onPressed: () async {

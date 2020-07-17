@@ -46,8 +46,8 @@ class OrderBloc with ChangeNotifier {
     notifyListeners();
   }
 
-  void fetchOrders() async {
-    final orders = await _orderRepository.fetchAll();
+  void fetchCustomerOrders(int customerId) async {
+    final orders = await _orderRepository.fetchAllByCustomer(customerId);
     _ordersStreamController.add(orders);
   }
 }
