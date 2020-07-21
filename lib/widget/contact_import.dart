@@ -4,10 +4,10 @@ import 'package:fluttercontactpicker/fluttercontactpicker.dart' as lib;
 
 typedef void OnContactImported(Contact contact);
 
-class ImportContact extends StatelessWidget {
+class ContactImport extends StatelessWidget {
   final OnContactImported onContactImported;
 
-  ImportContact({this.onContactImported});
+  ContactImport({this.onContactImported});
 
   @override
   Widget build(BuildContext context) {

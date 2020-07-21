@@ -1,8 +1,9 @@
-import 'package:caderninho/presentation/page/catalog_page.dart';
-import 'package:caderninho/presentation/page/customers_page.dart';
-import 'package:caderninho/presentation/page/dashboard_page.dart';
-import 'package:caderninho/presentation/widgets/order_icon.dart';
+import 'package:caderninho/widget/order_icon.dart';
 import 'package:flutter/material.dart';
+
+import 'catalog_page.dart';
+import 'customers_page.dart';
+import 'dashboard_page.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage();

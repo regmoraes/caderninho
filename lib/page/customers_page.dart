@@ -1,12 +1,12 @@
 import 'package:caderninho/customer/bloc.dart';
 import 'package:caderninho/customer/search.dart';
 import 'package:caderninho/customer/states.dart';
-import 'package:caderninho/presentation/page/customer_orders_page.dart';
-import 'package:caderninho/presentation/widgets/customers.dart';
+import 'package:caderninho/page/navigator.dart';
+import 'package:caderninho/widget/customers_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../navigator.dart';
+import 'customer_orders_page.dart';
 import 'new_customer_page.dart';
 
 class CustomersPage extends StatefulWidget {

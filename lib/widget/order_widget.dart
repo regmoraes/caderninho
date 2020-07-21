@@ -1,7 +1,8 @@
 import 'package:caderninho/order/bloc.dart';
-import 'package:caderninho/presentation/widgets/order_item.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+
+import 'order_item.dart';
 
 class OrderWidget extends StatelessWidget {
   @override

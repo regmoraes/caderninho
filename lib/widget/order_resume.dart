@@ -1,7 +1,8 @@
 import 'package:caderninho/order/bloc.dart';
-import 'package:caderninho/presentation/widgets/currency_text.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+
+import 'currency_text.dart';
 
 class OrderResume extends StatelessWidget {
   @override

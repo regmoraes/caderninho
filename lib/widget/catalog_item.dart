@@ -2,11 +2,11 @@ import 'dart:io';
 
 import 'package:caderninho/catalog/product.dart';
 import 'package:caderninho/order/bloc.dart';
-import 'package:caderninho/presentation/widgets/currency_text.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import 'add_to_cart_button.dart';
+import 'currency_text.dart';
 
 typedef void OnItemClicked(Product product);
 

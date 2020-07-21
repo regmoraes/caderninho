@@ -1,9 +1,8 @@
-import 'package:caderninho/presentation/page/catalog_page.dart';
-import 'package:caderninho/presentation/page/customers_page.dart';
-import 'package:caderninho/presentation/page/dashboard_page.dart';
+import 'package:caderninho/page/catalog_page.dart';
+import 'package:caderninho/page/customers_page.dart';
+import 'package:caderninho/page/dashboard_page.dart';
+import 'package:caderninho/page/navigator.dart';
 import 'package:flutter/material.dart';
-
-import '../navigator.dart';
 
 class BottomNavigation extends StatefulWidget {
   @override

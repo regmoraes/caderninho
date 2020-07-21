@@ -2,13 +2,13 @@ import 'dart:math';
 
 import 'package:caderninho/customer/bloc.dart';
 import 'package:caderninho/customer/customer.dart';
-import 'package:caderninho/presentation/widgets/custom_text_field.dart';
-import 'package:caderninho/presentation/widgets/import_contact.dart';
-import 'package:caderninho/presentation/widgets/ok_button.dart';
+import 'package:caderninho/widget/contact_import.dart';
+import 'package:caderninho/widget/custom_text_field.dart';
+import 'package:caderninho/widget/ok_button.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../navigator.dart';
+import 'navigator.dart';
 
 class NewCustomerPage extends StatefulWidget {
   @override
@@ -26,7 +26,7 @@ class _NewCustomerPageState extends State<NewCustomerPage> {
       appBar: AppBar(
         title: Text(title),
         actions: <Widget>[
-          ImportContact(
+          ContactImport(
             onContactImported: (contact) {
               _formController.name.text = contact.name;
               _formController.phoneNumber.text = contact.phoneNumber;

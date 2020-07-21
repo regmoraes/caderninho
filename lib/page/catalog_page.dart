@@ -1,8 +1,8 @@
 import 'package:caderninho/catalog/bloc.dart';
 import 'package:caderninho/catalog/search.dart';
 import 'package:caderninho/catalog/states.dart';
-import 'package:caderninho/presentation/navigator.dart';
-import 'package:caderninho/presentation/widgets/catalog_widget.dart';
+import 'package:caderninho/page/navigator.dart';
+import 'package:caderninho/widget/catalog_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 

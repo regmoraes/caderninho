@@ -1,4 +1,4 @@
-import 'package:caderninho/presentation/widgets/currency_field.dart';
+import 'package:caderninho/widget/currency_field.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 

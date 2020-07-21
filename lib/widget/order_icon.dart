@@ -1,6 +1,6 @@
 import 'package:caderninho/order/bloc.dart';
-import 'package:caderninho/presentation/navigator.dart';
-import 'package:caderninho/presentation/page/order_page.dart';
+import 'package:caderninho/page/navigator.dart';
+import 'package:caderninho/page/order_page.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 

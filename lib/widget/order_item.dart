@@ -2,10 +2,11 @@ import 'dart:io';
 
 import 'package:caderninho/order/bloc.dart';
 import 'package:caderninho/order/order_item.dart';
-import 'package:caderninho/presentation/button_style.dart' as ButtonStyle;
-import 'package:caderninho/presentation/widgets/currency_text.dart';
+import 'package:caderninho/style/button_style.dart' as ButtonStyle;
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+
+import 'currency_text.dart';
 
 class OrderItemWidget extends StatelessWidget {
   final OrderItem orderItem;

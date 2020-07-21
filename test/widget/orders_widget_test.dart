@@ -1,9 +1,9 @@
 import 'package:caderninho/order/order.dart';
-import 'package:caderninho/presentation/widgets/orders.dart';
+import 'package:caderninho/widget/orders.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
-import '../../test_stubs.dart';
+import '../test_stubs.dart';
 
 void main() {
   group("Given an empty Order list", () {

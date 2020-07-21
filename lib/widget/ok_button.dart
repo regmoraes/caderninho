@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
-import '../button_style.dart' as ButtonStyle;
+import '../style/button_style.dart' as ButtonStyle;
 
 class OkButton extends StatelessWidget {
   final void Function() onPressed;

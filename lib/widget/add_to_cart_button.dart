@@ -1,6 +1,6 @@
 import 'package:caderninho/catalog/product.dart';
 import 'package:caderninho/order/bloc.dart';
-import 'package:caderninho/presentation/button_style.dart' as ButtonStyle;
+import 'package:caderninho/style/button_style.dart' as ButtonStyle;
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:provider/provider.dart';

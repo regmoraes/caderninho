@@ -3,12 +3,12 @@ import 'package:caderninho/customer/customer.dart';
 import 'package:caderninho/customer/search.dart';
 import 'package:caderninho/customer/states.dart';
 import 'package:caderninho/order/bloc.dart';
-import 'package:caderninho/presentation/widgets/customers.dart';
-import 'package:caderninho/presentation/widgets/ok_button.dart';
+import 'package:caderninho/widget/customers_widget.dart';
+import 'package:caderninho/widget/ok_button.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../navigator.dart';
+import 'navigator.dart';
 
 class NewOrderPage extends StatefulWidget {
   final _formController = _FormController();

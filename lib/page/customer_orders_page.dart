@@ -1,10 +1,10 @@
 import 'package:caderninho/order/bloc.dart';
-import 'package:caderninho/presentation/widgets/order_icon.dart';
-import 'package:caderninho/presentation/widgets/orders.dart';
+import 'package:caderninho/page/navigator.dart';
+import 'package:caderninho/widget/order_icon.dart';
+import 'package:caderninho/widget/orders.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../navigator.dart';
 import 'new_order_page.dart';
 
 class CustomerOrdersPage extends StatefulWidget {

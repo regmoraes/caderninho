@@ -5,14 +5,13 @@ import 'package:caderninho/catalog/bloc.dart';
 import 'package:caderninho/catalog/product.dart';
 import 'package:caderninho/catalog/states.dart';
 import 'package:caderninho/image/image_picker.dart';
-import 'package:caderninho/presentation/widgets/currency_field.dart';
-import 'package:caderninho/presentation/widgets/custom_text_field.dart';
-import 'package:caderninho/presentation/widgets/ok_button.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:caderninho/widget/currency_field.dart';
+import 'package:caderninho/widget/custom_text_field.dart';
+import 'package:caderninho/widget/ok_button.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../navigator.dart';
+import 'navigator.dart';
 
 class NewProductPage extends StatefulWidget {
   @override
