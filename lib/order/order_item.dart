@@ -7,6 +7,8 @@ class OrderItem extends Equatable {
 
   OrderItem(this.product, {this.quantity = 1});
 
+  int get totalPrice => product.priceInCents * quantity;
+
   @override
   List<Object> get props => [product, quantity];
 }
