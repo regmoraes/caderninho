@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
+import '../button_style.dart' as ButtonStyle;
+
 class OkButton extends StatelessWidget {
   final void Function() onPressed;
 
@@ -14,7 +16,9 @@ class OkButton extends StatelessWidget {
         child: Align(
           alignment: Alignment.bottomRight,
           child: RaisedButton(
-            child: Text("Ok"),
+            child: Text("Adicionar"),
+            color: ButtonStyle.backgroundColor,
+            textColor: ButtonStyle.textColor,
             onPressed: () => onPressed?.call(),
           ),
         ),

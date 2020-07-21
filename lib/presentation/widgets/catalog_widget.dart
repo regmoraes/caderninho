@@ -13,7 +13,7 @@ class CatalogWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
-    final double itemHeight = (size.height - 200) / 2;
+    final double itemHeight = (size.height * 0.45);
     final double itemWidth = size.width / 2;
 
     return GridView.builder(

@@ -11,7 +11,7 @@ class CurrencyField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return TextField(
+    return TextFormField(
       decoration: InputDecoration(
         hintStyle: TextStyle(fontSize: 17),
         hintText: hintText,
@@ -19,6 +19,7 @@ class CurrencyField extends StatelessWidget {
         contentPadding: EdgeInsets.all(8),
       ),
       inputFormatters: [CurrencyInputFormatter()],
+      keyboardType: TextInputType.number,
       controller: controller,
       onChanged: (newText) => controller._cents = priceFrom(newText),
     );

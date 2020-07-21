@@ -19,9 +19,11 @@ environment:
 dependencies:
   camera:
   equatable: ^1.1.1
-  intl: ^0.16.1
   flutter:
     sdk: flutter
+  fluttercontactpicker: ^2.4.2
+  image_picker: ^0.6.7+4
+  intl: ^0.16.1
   path:
   path_provider:
   permission_handler: ^5.0.1+1

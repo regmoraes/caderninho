@@ -6,8 +6,8 @@ import 'package:provider/provider.dart';
 class OrderWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    var size = MediaQuery.of(context).size;
-    final double itemHeight = (size.height - 200) / 2;
+    final size = MediaQuery.of(context).size;
+    final double itemHeight = (size.height * 0.45);
     final double itemWidth = size.width / 2;
 
     return Consumer<OrderBloc>(

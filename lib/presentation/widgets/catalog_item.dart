@@ -1,61 +1,46 @@
+import 'dart:io';
+
 import 'package:caderninho/catalog/product.dart';
 import 'package:caderninho/order/bloc.dart';
-import 'package:caderninho/presentation/currency_formatter.dart';
+import 'package:caderninho/presentation/widgets/currency_text.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+
+import 'add_to_cart_button.dart';
 
 typedef void OnItemClicked(Product product);
 
 class CatalogItem extends StatelessWidget {
-  final bool showAddToCartOption;
-  final OnItemClicked onItemClicked;
   final Product product;
 
-  CatalogItem({this.product, this.showAddToCartOption, this.onItemClicked});
+  CatalogItem({this.product});
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      child: Card(
-        clipBehavior: null,
-        margin: EdgeInsets.all(8),
-        elevation: 4,
+    return Card(
+      clipBehavior: Clip.antiAliasWithSaveLayer,
+      margin: EdgeInsets.all(8),
+      elevation: 4,
+      child: Padding(
+        padding: EdgeInsets.all(4),
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: <Widget>[
-            Container(
-                child: Text(
+            Image.file(
+              File(product.imagePath),
+              filterQuality: FilterQuality.medium,
+            ),
+            Text(
               "${product.name}",
               textAlign: TextAlign.center,
-            )),
-            Container(
-                child: Text(
-              "${priceTextFrom(product.priceInCents)}",
-              textAlign: TextAlign.center,
-            )),
-            AddToCartButton(product)
+            ),
+            CurrencyText(product.priceInCents),
+            context.watch<OrderBloc>().hasOngoingOrder
+                ? AddToCartButton(product)
+                : Container()
           ],
         ),
       ),
     );
-  }
-}
-
-class AddToCartButton extends StatelessWidget {
-  final Product product;
-
-  AddToCartButton(this.product);
-
-  @override
-  Widget build(BuildContext context) {
-    final orderBloc = Provider.of<OrderBloc>(context);
-    if (orderBloc.hasOngoingOrder) {
-      return RaisedButton(
-          child: Text("Add to Cart"),
-          onPressed: () => orderBloc.addProduct(product));
-    } else {
-      return Container();
-    }
   }
 }

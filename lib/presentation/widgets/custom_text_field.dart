@@ -9,14 +9,16 @@ class CustomTextField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return TextField(
+    return TextFormField(
+      controller: controller,
       decoration: InputDecoration(
-        hintStyle: TextStyle(fontSize: 17),
-        hintText: hintText,
         border: OutlineInputBorder(borderSide: BorderSide()),
         contentPadding: EdgeInsets.all(8),
+        hintStyle: TextStyle(fontSize: 17),
+        hintText: hintText,
       ),
-      controller: controller,
+      keyboardType: TextInputType.text,
+      textCapitalization: TextCapitalization.sentences,
     );
   }
 }

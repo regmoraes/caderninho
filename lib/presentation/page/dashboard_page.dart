@@ -1,5 +1,7 @@
+import 'package:caderninho/order/bloc.dart';
 import 'package:caderninho/presentation/widgets/new_order_fab.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class DashboardPage extends StatefulWidget {
   const DashboardPage();
@@ -11,9 +13,11 @@ class DashboardPage extends StatefulWidget {
 class _DashboardPageState extends State<DashboardPage> {
   @override
   Widget build(BuildContext context) {
+    final hasOngoingOrder = context.watch<OrderBloc>().hasOngoingOrder;
     return Scaffold(
       body: Center(child: Text("Nothing here")),
-      floatingActionButton: NewOrderFloatActionButton(),
+      floatingActionButton:
+          !hasOngoingOrder ? NewOrderFloatActionButton() : Container(),
     );
   }
 }
