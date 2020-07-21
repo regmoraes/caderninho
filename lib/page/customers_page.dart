@@ -6,7 +6,7 @@ import 'package:caderninho/widget/customers_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import 'customer_orders_page.dart';
+import 'customer_details_page.dart';
 import 'new_customer_page.dart';
 
 class CustomersPage extends StatefulWidget {
@@ -37,7 +37,7 @@ class _CustomersPageState extends State<CustomersPage> {
             return CustomersWidget(
               snapshot.data.customers,
               onCustomerClicked: (customer) =>
-                  push(context, CustomerOrdersPage(customer.id)),
+                  push(context, CustomerDetailsPage(customer)),
             );
           else
             return Center(child: CircularProgressIndicator());

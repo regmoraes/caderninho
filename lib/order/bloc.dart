@@ -21,7 +21,11 @@ class OrderBloc with ChangeNotifier {
   OrderBloc(this._orderRepository);
 
   void newOrder(Customer customer) {
-    ongoingOrder = Order(id: Random().nextInt(100), customer: customer);
+    ongoingOrder = Order(
+      id: Random().nextInt(100),
+      customer: customer,
+      date: DateTime.now().toString(),
+    );
     notifyListeners();
   }
 

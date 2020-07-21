@@ -1,5 +1,5 @@
 import 'package:caderninho/order/order.dart';
-import 'package:caderninho/widget/orders.dart';
+import 'package:caderninho/widget/closed_orders.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
@@ -10,7 +10,7 @@ void main() {
     final ordersResult = List<Order>();
 
     testWidgets("It shouldn't show any order", (tester) async {
-      final ordersWidget = OrdersWidget(ordersResult);
+      final ordersWidget = ClosedOrders(ordersResult);
 
       await tester.pumpWidget(MaterialApp(home: Scaffold(body: ordersWidget)));
 
@@ -32,7 +32,7 @@ void main() {
     final ordersResult = [orderOne, orderTwo];
 
     testWidgets("It should show customer name and total price", (tester) async {
-      final ordersWidget = OrdersWidget(ordersResult);
+      final ordersWidget = ClosedOrders(ordersResult);
 
       await tester.pumpWidget(MaterialApp(home: Scaffold(body: ordersWidget)));
 

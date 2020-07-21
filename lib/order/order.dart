@@ -10,10 +10,12 @@ import 'order_item.dart';
 class Order extends Equatable {
   final int id;
   final Customer customer;
+  final String date;
   final SaleType saleType;
   final _itemsMap = HashMap<int, OrderItem>();
 
-  Order({this.id, this.customer, this.saleType = SaleType.INSTALMENT});
+  Order(
+      {this.id, this.customer, this.date, this.saleType = SaleType.INSTALMENT});
 
   List<OrderItem> get items => List.unmodifiable(_itemsMap.values);
 
@@ -52,8 +54,5 @@ class Order extends Equatable {
   }
 
   @override
-  List<Object> get props => [
-        id,
-        customer,
-      ];
+  List<Object> get props => [id, customer, date, saleType];
 }
