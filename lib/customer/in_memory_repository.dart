@@ -4,6 +4,12 @@ import 'repository.dart';
 class InMemoryCustomers implements CustomerRepository {
   final _customers = List<Customer>();
 
+  InMemoryCustomers() {
+    _customers.add(Customer(id: 0, name: "A Customer", phoneNumber: "12345"));
+    _customers
+        .add(Customer(id: 1, name: "Another customer", phoneNumber: "67890"));
+  }
+
   @override
   Future<Customer> addCustomer(Customer customer) {
     _customers.add(customer);

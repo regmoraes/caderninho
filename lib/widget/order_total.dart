@@ -4,7 +4,7 @@ import 'package:provider/provider.dart';
 
 import 'currency_text.dart';
 
-class OrderResume extends StatelessWidget {
+class OrderTotal extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;

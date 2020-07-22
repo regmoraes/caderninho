@@ -1,6 +1,6 @@
 import 'package:caderninho/order/bloc.dart';
 import 'package:caderninho/page/navigator.dart';
-import 'package:caderninho/widget/order_resume.dart';
+import 'package:caderninho/widget/order_total.dart';
 import 'package:caderninho/widget/order_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -31,7 +31,7 @@ class _OrderPageState extends State<OrderPage> {
         ],
       ),
       body: OrderWidget(),
-      bottomNavigationBar: OrderResume(),
+      bottomNavigationBar: OrderTotal(),
     );
   }
 }
