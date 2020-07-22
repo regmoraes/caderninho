@@ -14,6 +14,7 @@ class OrderWidget extends StatelessWidget {
     return Consumer<OrderBloc>(
       builder: (context, orderBloc, child) {
         return GridView.builder(
+          shrinkWrap: true,
           gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: 2,
             childAspectRatio: itemWidth / itemHeight,

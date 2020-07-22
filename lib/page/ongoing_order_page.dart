@@ -1,16 +1,17 @@
 import 'package:caderninho/order/bloc.dart';
 import 'package:caderninho/page/navigator.dart';
+import 'package:caderninho/widget/order_detail_header.dart';
 import 'package:caderninho/widget/order_total.dart';
 import 'package:caderninho/widget/order_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-class OrderPage extends StatefulWidget {
+class OngoingOrderPage extends StatefulWidget {
   @override
-  State createState() => _OrderPageState();
+  State createState() => _OngoingOrderPageState();
 }
 
-class _OrderPageState extends State<OrderPage> {
+class _OngoingOrderPageState extends State<OngoingOrderPage> {
   final title = "Carrinho";
 
   @override
@@ -30,7 +31,15 @@ class _OrderPageState extends State<OrderPage> {
           )
         ],
       ),
-      body: OrderWidget(),
+      body: Column(
+        children: <Widget>[
+          OrderDetailHeader(
+            orderBloc.ongoingOrder,
+            orderBloc.ongoingOrder.customer,
+          ),
+          OrderWidget()
+        ],
+      ),
       bottomNavigationBar: OrderTotal(),
     );
   }

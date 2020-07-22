@@ -1,6 +1,6 @@
 import 'package:caderninho/order/bloc.dart';
 import 'package:caderninho/page/navigator.dart';
-import 'package:caderninho/page/order_page.dart';
+import 'package:caderninho/page/ongoing_order_page.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -46,7 +46,7 @@ class OrderIcon extends StatelessWidget {
       child: IconButton(
         icon: Icon(Icons.shopping_cart),
         onPressed: () {
-          push(context, OrderPage());
+          push(context, OngoingOrderPage());
         },
       ),
     );
