@@ -1,5 +1,6 @@
 import 'package:caderninho/order/bloc.dart';
 import 'package:caderninho/order/in_memory_repository.dart';
+import 'package:caderninho/order/order_type.dart';
 import 'package:caderninho/widget/order_icon.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -12,7 +13,7 @@ void main() {
 
   setUp(() {
     _orderBloc = OrderBloc(InMemoryOrder());
-    _orderBloc.newOrder(testerCustomer);
+    _orderBloc.newOrder(testerCustomer, OrderType.CASH);
   });
 
   group("Given an empty Order", () {

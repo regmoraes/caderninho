@@ -4,6 +4,7 @@ import 'dart:math';
 import 'package:caderninho/catalog/product.dart';
 import 'package:caderninho/customer/customer.dart';
 import 'package:caderninho/order/order.dart';
+import 'package:caderninho/order/order_type.dart';
 import 'package:caderninho/order/repository.dart';
 import 'package:flutter/foundation.dart';
 
@@ -20,12 +21,12 @@ class OrderBloc with ChangeNotifier {
 
   OrderBloc(this._orderRepository);
 
-  void newOrder(Customer customer) {
+  void newOrder(Customer customer, OrderType orderType) {
     ongoingOrder = Order(
-      id: Random().nextInt(100),
-      customer: customer,
-      date: DateTime.now().toString(),
-    );
+        id: Random().nextInt(100),
+        customer: customer,
+        date: DateTime.now().toString(),
+        orderType: orderType);
     notifyListeners();
   }
 

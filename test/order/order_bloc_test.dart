@@ -1,6 +1,7 @@
 import 'package:caderninho/order/bloc.dart';
 import 'package:caderninho/order/in_memory_repository.dart';
 import 'package:caderninho/order/order_item.dart';
+import 'package:caderninho/order/order_type.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 import '../test_stubs.dart';
@@ -11,7 +12,7 @@ void main() {
   group('Given an empty Order', () {
     setUp(() {
       orderBloc = OrderBloc(InMemoryOrder());
-      orderBloc.newOrder(testerCustomer);
+      orderBloc.newOrder(testerCustomer, OrderType.CASH);
     });
 
     test("When asking if it is empty it should return true", () {
@@ -53,7 +54,7 @@ void main() {
   group('Given a non empty Order', () {
     setUp(() {
       orderBloc = OrderBloc(InMemoryOrder());
-      orderBloc.newOrder(testerCustomer);
+      orderBloc.newOrder(testerCustomer, OrderType.CASH);
       orderBloc.addProduct(ball);
       orderBloc.addProduct(bat);
     });

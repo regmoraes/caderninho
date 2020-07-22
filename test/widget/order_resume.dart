@@ -9,9 +9,10 @@ void main() {
   group('Given an Order', () {
     setUp(() {
       order = Order(
-          id: 1,
-          customer: testerCustomer,
-          date: DateTime.now().toIso8601String());
+        id: 1,
+        customer: testerCustomer,
+        date: DateTime.now().toIso8601String(),
+      );
       order.add(ball);
       order.add(ball);
       order.add(ball);

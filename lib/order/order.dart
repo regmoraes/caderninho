@@ -1,8 +1,8 @@
 import 'dart:collection';
 
 import 'package:caderninho/catalog/product.dart';
-import 'package:caderninho/catalog/sale_type.dart';
 import 'package:caderninho/customer/customer.dart';
+import 'package:caderninho/order/order_type.dart';
 import 'package:equatable/equatable.dart';
 
 import 'order_item.dart';
@@ -11,11 +11,14 @@ class Order extends Equatable {
   final int id;
   final Customer customer;
   final String date;
-  final SaleType saleType;
+  final OrderType orderType;
   final _itemsMap = HashMap<int, OrderItem>();
 
   Order(
-      {this.id, this.customer, this.date, this.saleType = SaleType.INSTALMENT});
+      {this.id,
+      this.customer,
+      this.date,
+      this.orderType = OrderType.INSTALMENT});
 
   List<OrderItem> get items => List.unmodifiable(_itemsMap.values);
 
@@ -54,5 +57,5 @@ class Order extends Equatable {
   }
 
   @override
-  List<Object> get props => [id, customer, date, saleType];
+  List<Object> get props => [id, customer, date, orderType];
 }

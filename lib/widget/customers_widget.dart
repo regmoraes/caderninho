@@ -5,16 +5,16 @@ import 'customer_item.dart';
 
 class CustomersWidget extends StatelessWidget {
   final List<Customer> customers;
-  final OnCustomerClicked onCustomerClicked;
+  final OnCustomerClicked onCustomerSelected;
 
-  CustomersWidget(this.customers, {this.onCustomerClicked});
+  CustomersWidget(this.customers, {this.onCustomerSelected});
 
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
       itemCount: customers.length,
       itemBuilder: (context, index) => CustomerItemWidget(customers[index],
-          onCustomerClicked: onCustomerClicked),
+          onCustomerClicked: onCustomerSelected),
     );
   }
 }

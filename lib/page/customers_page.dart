@@ -36,7 +36,7 @@ class _CustomersPageState extends State<CustomersPage> {
           if (snapshot.data is Fetched)
             return CustomersWidget(
               snapshot.data.customers,
-              onCustomerClicked: (customer) =>
+              onCustomerSelected: (customer) =>
                   push(context, CustomerDetailsPage(customer)),
             );
           else

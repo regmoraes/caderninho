@@ -1,17 +1,16 @@
 import 'package:caderninho/customer/bloc.dart';
-import 'package:caderninho/customer/customer.dart';
 import 'package:caderninho/customer/search.dart';
 import 'package:caderninho/customer/states.dart';
 import 'package:caderninho/order/bloc.dart';
+import 'package:caderninho/order/order_type.dart';
 import 'package:caderninho/widget/customers_widget.dart';
-import 'package:caderninho/widget/ok_button.dart';
+import 'package:caderninho/widget/order_type_selection_alert.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import 'navigator.dart';
 
 class NewOrderPage extends StatefulWidget {
-  final _formController = _FormController();
   final title = "New Order";
 
   @override
@@ -37,45 +36,26 @@ class _NewOrderPage extends State<NewOrderPage> {
         title: Text(widget.title),
       ),
       body: Container(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-            StreamBuilder(
-              stream: customerBloc.state,
-              builder: (context, snapshot) {
-                if (snapshot.data is Fetched) {
-                  return Expanded(
-                    child: CustomersWidget(
-                      snapshot.data.customers,
-                      onCustomerClicked: (costumer) {
-                        orderBloc.newOrder(costumer);
-                        pop(context);
-                      },
-                    ),
-                  );
-                } else {
-                  return CircularProgressIndicator();
-                }
-              },
-            ),
-            OkButton(
-              () {
-                if (widget._formController.selectedCustomer != null) {
-                  orderBloc.newOrder(widget._formController.selectedCustomer);
-                }
-              },
-            ),
-          ],
+        child: StreamBuilder(
+          stream: customerBloc.state,
+          builder: (context, snapshot) {
+            if (snapshot.data is Fetched) {
+              return CustomersWidget(
+                snapshot.data.customers,
+                onCustomerSelected: (selectedCustomer) async {
+                  final selectedOrderType = await showDialog<OrderType>(
+                      context: context,
+                      builder: (context) => OrderTypeSelectionAlert());
+                  orderBloc.newOrder(selectedCustomer, selectedOrderType);
+                  pop(context);
+                },
+              );
+            } else {
+              return CircularProgressIndicator();
+            }
+          },
         ),
       ),
     );
   }
-}
-
-class _FormController {
-  final name = TextEditingController();
-  final description = TextEditingController();
-  final price = TextEditingController();
-
-  Customer selectedCustomer;
 }
