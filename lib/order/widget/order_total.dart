@@ -1,8 +1,7 @@
 import 'package:caderninho/order/bloc.dart';
+import 'package:caderninho/widget/currency_text.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-
-import 'currency_text.dart';
 
 class OrderTotal extends StatelessWidget {
   @override

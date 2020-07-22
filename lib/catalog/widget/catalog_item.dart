@@ -5,8 +5,8 @@ import 'package:caderninho/order/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import 'add_to_cart_button.dart';
-import 'currency_text.dart';
+import '../../order/widget/add_to_order_button.dart';
+import '../../widget/currency_text.dart';
 
 typedef void OnItemClicked(Product product);
 

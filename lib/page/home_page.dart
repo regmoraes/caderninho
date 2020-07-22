@@ -1,4 +1,4 @@
-import 'package:caderninho/widget/order_icon.dart';
+import 'package:caderninho/order/widget/order_icon.dart';
 import 'package:flutter/material.dart';
 
 import 'catalog_page.dart';

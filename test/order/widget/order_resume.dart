@@ -2,7 +2,7 @@ import 'package:caderninho/order/order.dart';
 import 'package:caderninho/order/order_resume.dart';
 import 'package:flutter_test/flutter_test.dart';
 
-import '../test_stubs.dart';
+import '../../test_stubs.dart';
 
 void main() {
   Order order;

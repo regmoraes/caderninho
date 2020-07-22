@@ -1,10 +1,10 @@
 import 'package:caderninho/customer/bloc.dart';
 import 'package:caderninho/customer/search.dart';
 import 'package:caderninho/customer/states.dart';
+import 'package:caderninho/customer/widget/customers_widget.dart';
 import 'package:caderninho/order/bloc.dart';
 import 'package:caderninho/order/order_type.dart';
-import 'package:caderninho/widget/customers_widget.dart';
-import 'package:caderninho/widget/order_type_selection_alert.dart';
+import 'package:caderninho/order/widget/order_type_selection_alert.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 

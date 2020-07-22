@@ -1,12 +1,12 @@
 import 'package:caderninho/order/bloc.dart';
 import 'package:caderninho/order/in_memory_repository.dart';
 import 'package:caderninho/order/order_type.dart';
-import 'package:caderninho/widget/order_icon.dart';
+import 'package:caderninho/order/widget/order_icon.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:provider/provider.dart';
 
-import '../test_stubs.dart';
+import '../../test_stubs.dart';
 
 void main() {
   OrderBloc _orderBloc;

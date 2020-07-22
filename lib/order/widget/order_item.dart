@@ -6,7 +6,7 @@ import 'package:caderninho/style/button_style.dart' as ButtonStyle;
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import 'currency_text.dart';
+import '../../widget/currency_text.dart';
 
 class OrderItemWidget extends StatelessWidget {
   final OrderItem orderItem;

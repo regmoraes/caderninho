@@ -1,8 +1,8 @@
 import 'package:caderninho/order/bloc.dart';
+import 'package:caderninho/order/widget/order_detail_header.dart';
+import 'package:caderninho/order/widget/order_total.dart';
+import 'package:caderninho/order/widget/order_widget.dart';
 import 'package:caderninho/page/navigator.dart';
-import 'package:caderninho/widget/order_detail_header.dart';
-import 'package:caderninho/widget/order_total.dart';
-import 'package:caderninho/widget/order_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 

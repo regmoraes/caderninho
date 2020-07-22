@@ -1,5 +1,5 @@
 import 'package:caderninho/order/order.dart';
-import 'package:caderninho/widget/closed_order_item.dart';
+import 'package:caderninho/order/widget/closed_order_item.dart';
 import 'package:flutter/material.dart';
 
 class ClosedOrders extends StatelessWidget {

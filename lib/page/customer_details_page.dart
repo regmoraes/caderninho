@@ -1,6 +1,6 @@
 import 'package:caderninho/customer/customer.dart';
 import 'package:caderninho/order/bloc.dart';
-import 'package:caderninho/widget/closed_orders.dart';
+import 'package:caderninho/order/widget/closed_orders.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 

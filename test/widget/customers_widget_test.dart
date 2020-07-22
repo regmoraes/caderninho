@@ -1,5 +1,5 @@
 import 'package:caderninho/customer/customer.dart';
-import 'package:caderninho/widget/customers_widget.dart';
+import 'package:caderninho/customer/widget/customers_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
