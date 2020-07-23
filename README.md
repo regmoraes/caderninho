@@ -26,14 +26,14 @@ The **page** package is where the pages of the app resides, each page is respons
 
 Due to the reactive nature of Flutter applications, the BLoC pattern is used. Each domain context has a dedicated BLoC which provides methods to operate on the domain models, 
 and is responsible to manage and notify it listeners of the state of the model. 
-Notification are emitted using `ChangeNotifier`s and `Stream`s     
+Notification are emitted using `ChangeNotifier`s and `Stream`s.
 
-The overall app architecture is as follows
+The overall app architecture is as follows (example of the `OrderPage`):
 
 <p align="center">
 <img width="40%" vspace="20" hspace="20" src="documentation/overall_architecture.png" />
 
-The overall architecture of each "bounded context" package is as follows
+The overall architecture of each "bounded context" package is as follows:
 
 <p align="center">
 <img width="70%" vspace="20" hspace="20" src="documentation/package_level_architecture.png" />
