@@ -1,0 +1,25 @@
+@startuml
+package context {
+    class Bloc {
+        Stream<ModelOneState> state
+        ModelOne modelOne
+        void action(ModelOne model)
+    }
+
+    interface Repository
+
+    class RepositoryImpl implements Repository {}
+
+    class ModelOne {}
+
+    class ModelTwo {}
+
+    package widget {
+        class WidgetA
+    }
+}
+
+Bloc -> ModelOne
+ModelOne o- ModelTwo
+Bloc ..> Repository
+@enduml

@@ -10,9 +10,9 @@ import 'customer/in_memory_repository.dart';
 import 'order/bloc.dart';
 import 'page/home_page.dart';
 
-void main() => runApp(MyApp());
+void main() => runApp(Caderninho());
 
-class MyApp extends StatelessWidget {
+class Caderninho extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiProvider(

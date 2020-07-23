@@ -1,0 +1,31 @@
+@startuml
+!define Widget rectangle #lightyellow
+!define App rectangle #lightgreen
+!define Bloc rectangle #lightblue
+!define Page rectangle #lightgreen
+
+Widget WidgetA
+Widget WidgetB
+
+Bloc OrderBloc
+Bloc CatalogBloc
+Bloc CustomerBloc
+
+App Caderninho
+
+Page HomePage
+Page OrderPage
+
+Caderninho -up-> CatalogBloc
+Caderninho -up-> CustomerBloc
+Caderninho -up-> OrderBloc
+Caderninho --> HomePage
+
+HomePage --> OrderPage
+
+OrderPage -down-> WidgetA
+OrderPage -down-> WidgetB
+
+WidgetB ..up..> "listen" OrderBloc
+WidgetB --> OrderBloc
+@enduml
