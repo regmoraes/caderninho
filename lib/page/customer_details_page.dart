@@ -1,8 +1,9 @@
 import 'package:caderninho/customer/customer.dart';
-import 'package:caderninho/order/bloc.dart';
-import 'package:caderninho/order/widget/closed_orders.dart';
+import 'package:caderninho/order/bloc/order_history_bloc.dart';
+import 'package:caderninho/order/bloc/order_history_state.dart';
+import 'package:caderninho/order/widget/closed_order_item.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class CustomerDetailsPage extends StatefulWidget {
   final Customer customer;
@@ -14,13 +15,11 @@ class CustomerDetailsPage extends StatefulWidget {
 }
 
 class _CustomerDetailsPageState extends State<CustomerDetailsPage> {
-  OrderBloc orderBloc;
-
   @override
   void initState() {
     super.initState();
-    orderBloc = Provider.of<OrderBloc>(context, listen: false);
-    orderBloc.fetchCustomerOrders(widget.customer.id);
+    BlocProvider.of<OrderHistoryBloc>(context)
+      ..fetchCustomerOrders(widget.customer.id);
   }
 
   @override
@@ -29,10 +28,17 @@ class _CustomerDetailsPageState extends State<CustomerDetailsPage> {
       appBar: AppBar(
         title: Text(widget.customer.name),
       ),
-      body: StreamBuilder(
-        stream: orderBloc.ordersResult,
-        builder: (context, snapshot) {
-          return ClosedOrders(snapshot?.data ?? List());
+      body: BlocBuilder<OrderHistoryBloc, OrderHistoryState>(
+        builder: (context, state) {
+          if (state is OrdersFetched) {
+            return ListView.builder(
+              itemCount: state.orders.length,
+              itemBuilder: (context, index) =>
+                  ClosedOrderItemWidget(state.orders[index]),
+            );
+          } else {
+            return Container();
+          }
         },
       ),
     );

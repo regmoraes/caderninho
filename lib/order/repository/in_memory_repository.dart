@@ -2,7 +2,7 @@ import 'dart:math';
 
 import 'package:caderninho/customer/customer.dart';
 
-import 'order.dart';
+import '../order.dart';
 import 'repository.dart';
 
 class InMemoryOrder implements OrderRepository {

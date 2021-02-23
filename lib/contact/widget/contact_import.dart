@@ -1,4 +1,4 @@
-import 'package:caderninho/customer/contact.dart';
+import 'package:caderninho/contact/contact.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttercontactpicker/fluttercontactpicker.dart' as lib;
 
@@ -14,8 +14,9 @@ class ContactImport extends StatelessWidget {
     return IconButton(
       icon: Icon(Icons.contacts),
       onPressed: () async {
-        final fullContact =
-            await lib.FlutterContactPicker.pickContact(askForPermission: true);
+        final fullContact = await lib.FlutterContactPicker.pickFullContact(
+          askForPermission: true,
+        );
         onContactImported(
           Contact(
             name: _getFullName(fullContact.name),

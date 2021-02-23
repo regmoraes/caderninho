@@ -13,7 +13,7 @@ void main() {
     final ordersResult = List<Order>();
 
     testWidgets("It shouldn't show any order", (tester) async {
-      final ordersWidget = ClosedOrders(ordersResult);
+      final ordersWidget = FinishedOrders(ordersResult);
 
       await tester.pumpWidget(MaterialApp(home: Scaffold(body: ordersWidget)));
 

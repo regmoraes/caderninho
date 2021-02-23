@@ -1,8 +1,8 @@
 import 'dart:math';
 
-import 'package:caderninho/customer/bloc.dart';
+import 'package:caderninho/contact/widget/contact_import.dart';
+import 'package:caderninho/customer/bloc/bloc.dart';
 import 'package:caderninho/customer/customer.dart';
-import 'package:caderninho/widget/contact_import.dart';
 import 'package:caderninho/widget/custom_text_field.dart';
 import 'package:caderninho/widget/ok_button.dart';
 import 'package:flutter/material.dart';
@@ -21,7 +21,6 @@ class _NewCustomerPageState extends State<NewCustomerPage> {
 
   @override
   Widget build(BuildContext context) {
-    final customerBloc = Provider.of<CustomerBloc>(context);
     return Scaffold(
       appBar: AppBar(
         title: Text(title),
@@ -50,7 +49,7 @@ class _NewCustomerPageState extends State<NewCustomerPage> {
             ),
             OkButton(
               () {
-                customerBloc.addCustomer(_formController.buildCustomer());
+                context.read<CustomerBloc>().addCustomer(_formController.buildCustomer());
                 pop(context);
               },
             ),

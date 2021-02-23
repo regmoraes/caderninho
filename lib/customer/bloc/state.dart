@@ -1,6 +1,6 @@
 import 'package:equatable/equatable.dart';
 
-import 'customer.dart';
+import '../customer.dart';
 
 abstract class CustomerState extends Equatable {}
 

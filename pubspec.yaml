@@ -17,18 +17,19 @@ environment:
   sdk: ">=2.8.1 <3.0.0"
 
 dependencies:
-  camera:
-  equatable: ^1.1.1
+  camera: ^0.7.0+2
+  equatable: ^1.2.6
   flutter:
     sdk: flutter
-  fluttercontactpicker: ^2.4.2
-  image_picker: ^0.6.7+4
+  flutter_bloc: ^6.1.2
+  fluttercontactpicker: ^4.2.1
+  image_picker: ^0.6.7+22
   intl: ^0.16.1
   path:
   path_provider:
-  permission_handler: ^5.0.1+1
-  provider: ^4.0.5+1
-  share: ^0.6.4+3
+  permission_handler: ^5.0.1+2
+  provider: ^4.3.3
+  share: ^0.6.5+4
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.

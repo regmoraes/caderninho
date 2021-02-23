@@ -12,11 +12,11 @@ void main() {
       order = Order(id: 1, customer: testerCustomer);
     });
 
-    test("When asking if it is empty it should return true", () {
+    test("When asking if It is empty It should return true", () {
       expect(order.isEmpty, true);
     });
 
-    test("When adding products it should increase items count", () {
+    test("When adding products It should increase items count", () {
       order.add(ball);
       order.add(bat);
 
@@ -29,7 +29,7 @@ void main() {
     });
 
     test(
-        "When adding same product it should update total and unique items count",
+        "When adding same product It should update total and unique items count",
         () {
       order.add(ball);
       order.add(ball);
@@ -42,7 +42,7 @@ void main() {
       expect(order.itemsCount, 2);
     });
 
-    test("When products are added it should not be empty", () {
+    test("When products are added It should not be empty", () {
       order.add(ball);
       expect(order.isEmpty, false);
     });
@@ -55,7 +55,7 @@ void main() {
       order.add(bat);
     });
 
-    test("When removing item it should decrease item count", () {
+    test("When removing item It should decrease item count", () {
       order.remove(ball.id);
 
       expectLater(order.itemsCount, 1);

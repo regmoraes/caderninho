@@ -1,6 +1,6 @@
 import 'dart:io';
 
-import 'package:caderninho/order/bloc.dart';
+import 'file:///C:/Users/regmoraes/Projects/caderninho/lib/order/bloc/order_bloc.dart';
 import 'package:caderninho/order/order_item.dart';
 import 'package:caderninho/style/button_style.dart' as ButtonStyle;
 import 'package:flutter/material.dart';

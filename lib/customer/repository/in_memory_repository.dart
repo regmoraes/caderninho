@@ -1,5 +1,5 @@
-import 'customer.dart';
-import 'repository.dart';
+import 'package:caderninho/customer/customer.dart';
+import 'package:caderninho/customer/repository/repository.dart';
 
 class InMemoryCustomers implements CustomerRepository {
   final _customers = List<Customer>();

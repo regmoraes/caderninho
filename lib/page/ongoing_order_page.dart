@@ -1,9 +1,11 @@
-import 'package:caderninho/order/bloc.dart';
+import 'package:caderninho/order/bloc/order_bloc.dart';
+import 'package:caderninho/order/bloc/order_state.dart';
 import 'package:caderninho/order/widget/order_detail_header.dart';
 import 'package:caderninho/order/widget/order_total.dart';
 import 'package:caderninho/order/widget/order_widget.dart';
 import 'package:caderninho/page/navigator.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:provider/provider.dart';
 
 class OngoingOrderPage extends StatefulWidget {
@@ -16,8 +18,6 @@ class _OngoingOrderPageState extends State<OngoingOrderPage> {
 
   @override
   Widget build(BuildContext context) {
-    final orderBloc = Provider.of<OrderBloc>(context);
-
     return Scaffold(
       appBar: AppBar(
         title: Text(title),
@@ -25,20 +25,25 @@ class _OngoingOrderPageState extends State<OngoingOrderPage> {
           IconButton(
             icon: Icon(Icons.check),
             onPressed: () {
-              orderBloc.checkout();
+              context.read<OrderBloc>().checkout();
               pop(context);
             },
           )
         ],
       ),
-      body: Column(
-        children: <Widget>[
-          OrderDetailHeader(
-            orderBloc.ongoingOrder,
-            orderBloc.ongoingOrder.customer,
-          ),
-          OrderWidget()
-        ],
+      body: BlocBuilder<OrderBloc, OrderState>(
+        builder: (context, state) {
+          if (state is OrderUpdated) {
+            return Column(
+              children: <Widget>[
+                OrderDetailHeader(state.order),
+                OrderWidget(state.order)
+              ],
+            );
+          } else {
+            return Container();
+          }
+        },
       ),
       bottomNavigationBar: OrderTotal(),
     );

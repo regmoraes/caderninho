@@ -12,7 +12,7 @@ void main() {
       currencyField = CurrencyField(controller: controller);
     });
 
-    testWidgets('When inputting 1 and 0, it should show R\$ 0,10',
+    testWidgets('When inputting 1 and 0, It should show R\$ 0,10',
         (tester) async {
       await tester.pumpWidget(MaterialApp(home: Scaffold(body: currencyField)));
 

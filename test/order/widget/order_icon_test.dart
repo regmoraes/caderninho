@@ -1,6 +1,6 @@
-import 'package:caderninho/order/bloc.dart';
-import 'package:caderninho/order/in_memory_repository.dart';
+import 'file:///C:/Users/regmoraes/Projects/caderninho/lib/order/bloc/order_bloc.dart';
 import 'package:caderninho/order/order_type.dart';
+import 'package:caderninho/order/repository/in_memory_repository.dart';
 import 'package:caderninho/order/widget/order_icon.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';

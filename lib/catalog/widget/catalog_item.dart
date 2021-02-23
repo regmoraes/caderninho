@@ -1,12 +1,12 @@
 import 'dart:io';
 
 import 'package:caderninho/catalog/product.dart';
-import 'package:caderninho/order/bloc.dart';
+import 'package:caderninho/order/bloc/order_bloc.dart';
+import 'package:caderninho/order/bloc/order_state.dart';
+import 'package:caderninho/order/widget/add_to_order_button.dart';
+import 'package:caderninho/widget/currency_text.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
-
-import '../../order/widget/add_to_order_button.dart';
-import '../../widget/currency_text.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 typedef void OnItemClicked(Product product);
 
@@ -35,9 +35,11 @@ class CatalogItem extends StatelessWidget {
               textAlign: TextAlign.center,
             ),
             CurrencyText(product.priceInCents),
-            context.watch<OrderBloc>().hasOngoingOrder
-                ? AddToCartButton(product)
-                : Container()
+            BlocBuilder<OrderBloc, OrderState>(
+              builder: (_, state) => state is OrderUpdated
+                  ? AddToCartButton(product)
+                  : Container(),
+            )
           ],
         ),
       ),

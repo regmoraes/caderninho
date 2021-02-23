@@ -1,10 +1,10 @@
-import 'package:caderninho/catalog/bloc.dart';
+import 'package:caderninho/catalog/bloc/bloc.dart';
+import 'package:caderninho/catalog/bloc/state.dart';
 import 'package:caderninho/catalog/search.dart';
-import 'package:caderninho/catalog/states.dart';
 import 'package:caderninho/catalog/widget/catalog_widget.dart';
 import 'package:caderninho/page/navigator.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'new_product_page.dart';
 
@@ -17,25 +17,24 @@ class CatalogPage extends StatefulWidget {
 
 class _CatalogPageState extends State<CatalogPage> {
   final title = "Catalog";
-  CatalogBloc catalogBloc;
 
   @override
   void initState() {
     super.initState();
-    catalogBloc = Provider.of<CatalogBloc>(context, listen: false);
-    catalogBloc.fetchCatalog(FetchAll());
+    BlocProvider.of<CatalogBloc>(context)..fetchCatalog(FetchAll());
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: StreamBuilder(
-        stream: catalogBloc.state,
-        builder: (context, snapshot) {
-          if (snapshot.data is Fetched || snapshot.data is ProductAdded) {
-            return CatalogWidget(snapshot.data.catalog);
-          } else {
+      body: BlocBuilder<CatalogBloc, CatalogState>(
+        builder: (context, state) {
+          if (state is Fetching) {
             return Center(child: CircularProgressIndicator());
+          } else if (state is CatalogUpdated) {
+            return CatalogWidget(state.catalog);
+          } else {
+            return Container();
           }
         },
       ),

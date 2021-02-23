@@ -1,12 +1,13 @@
-import 'package:caderninho/catalog/bloc.dart';
+import 'package:caderninho/catalog/bloc/bloc.dart';
+import 'package:caderninho/catalog/bloc/state.dart';
 import 'package:caderninho/catalog/catalog.dart';
 import 'package:caderninho/catalog/search.dart';
-import 'package:caderninho/catalog/states.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
 
-import '../test_stubs.dart';
-import 'catalog_mock.dart';
+import '../../test_stubs.dart';
+import '../catalog_mock.dart';
+
 
 void main() {
   CatalogRepositoryMock catalogRepositoryMock;
@@ -18,7 +19,7 @@ void main() {
       catalogBloc = CatalogBloc(catalogRepositoryMock);
     });
 
-    test("When fetching catalog it should emit correct stream of states",
+    test("When fetching catalog It should emit correct stream of states",
         () async {
       final expectedCatalog = Catalog([ball, bat]);
 
@@ -33,7 +34,7 @@ void main() {
         });
 
     test(
-        "When adding product it should emit correct stream of states if its successful",
+        "When adding product It should emit correct stream of states if its successful",
             () async {
           final expectedCatalog = Catalog([ball, bat, ball]);
 
